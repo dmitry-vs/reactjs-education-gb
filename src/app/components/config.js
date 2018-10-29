@@ -1,13 +1,25 @@
 export default {
+  headerSubscribeLink: {
+    text: 'Header Subscribe Link',
+    href: '#',
+  },
+
+  headerCenterText: 'Header Center Text',
+
+  headerSignupButton: {
+    text: 'Sign Up',
+    href: '#',
+  },
+  
   navbarItems: [
-    {name: 'NavItem 1', link: '#'},
-    {name: 'NavItem 2', link: '#'},
-    {name: 'NavItem 3', link: '#'},
-    {name: 'NavItem 4', link: '#'},
-    {name: 'NavItem 5', link: '#'},
-    {name: 'NavItem 6', link: '#'},
-    {name: 'NavItem 7', link: '#'},
-    {name: 'NavItem 8', link: '#'},
+    {text: 'NavItem 1', href: '#'},
+    {text: 'NavItem 2', href: '#'},
+    {text: 'NavItem 3', href: '#'},
+    {text: 'NavItem 4', href: '#'},
+    {text: 'NavItem 5', href: '#'},
+    {text: 'NavItem 6', href: '#'},
+    {text: 'NavItem 7', href: '#'},
+    {text: 'NavItem 8', href: '#'},
   ],
   
   featuredPosts: {
@@ -15,6 +27,8 @@ export default {
     leftBox: 'Test post 2 name',
     rightBox: 'Test post 3 name',
   },
+
+  postsBlockHeadline: 'Posts Block Headline',
 
   posts: [
     {
@@ -49,5 +63,22 @@ export default {
       headline: 'Test post 4 headline',
       content: 'Test post 4 content',
     },
-  ]
+  ],
+
+  blogPagination: {
+    older: {
+      href: '#',
+      text: 'Older',
+    },
+    newer: {
+      href: '#',
+      text: 'Newer',
+    },
+  },
+
+  sidebarHeader: {
+    title: 'Sidebar header',
+    text: 'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+  },
+
 }

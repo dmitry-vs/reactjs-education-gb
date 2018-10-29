@@ -4,8 +4,15 @@ import BlogConfig from './app/components/config';
 import Blog from './app/components/blog.jsx';
 
 ReactDOM.render(<Blog 
-  featuredPosts={BlogConfig.featuredPosts} 
+  headerSubscribeLink={BlogConfig.headerSubscribeLink}
+  headerCenterText={BlogConfig.headerCenterText}
+  headerSignupButton={BlogConfig.headerSignupButton}
+  navbarItems={BlogConfig.navbarItems}
+  featuredPosts={BlogConfig.featuredPosts}
+  postsBlockHeadline={BlogConfig.postsBlockHeadline} 
   posts={BlogConfig.posts}
-  navbarItems={BlogConfig.navbarItems}/>, 
+  blogPagination={BlogConfig.blogPagination}
+  sidebarHeader={BlogConfig.sidebarHeader}
+  />, 
   document.getElementById('app')
   );
