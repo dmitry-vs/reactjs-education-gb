@@ -8,6 +8,8 @@ export default {
 
   headerCenterText: 'Header Center Text',
 
+  headerSearchLink: '#',
+
   headerSignupButton: {
     text: 'Sign Up Button',
     href: '#',

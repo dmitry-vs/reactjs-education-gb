@@ -6,6 +6,7 @@ import Blog from './app/components/blog.jsx';
 ReactDOM.render(<Blog 
   headerSubscribeLink={BlogConfig.headerSubscribeLink}
   headerCenterText={BlogConfig.headerCenterText}
+  headerSearchLink={BlogConfig.headerSearchLink}
   headerSignupButton={BlogConfig.headerSignupButton}
   navbarItems={BlogConfig.navbarItems}
   featuredPosts={BlogConfig.featuredPosts}
