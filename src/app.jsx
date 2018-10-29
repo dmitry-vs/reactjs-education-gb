@@ -1,7 +1,8 @@
+import './app/styles/blog.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BlogConfig from './app/components/config.jsx';
-import Blog from './app/components/blog.jsx';
+import BlogConfig from './app/components/config';
+import Blog from './app/components/blog';
 
 ReactDOM.render(<Blog 
   headerSubscribeLink={BlogConfig.headerSubscribeLink}

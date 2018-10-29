@@ -1,6 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
-import Post from './post.jsx';
+import Post from './post';
 
 export default class Blog extends React.Component {
   render() {
