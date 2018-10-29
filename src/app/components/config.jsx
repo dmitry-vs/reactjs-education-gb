@@ -12,7 +12,6 @@ export default {
 
   headerSignupButton: {
     text: 'Sign Up Button',
-    href: '#',
   },
   
   navbarItems: [
