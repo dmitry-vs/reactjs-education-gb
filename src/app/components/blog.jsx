@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'react-moment';
+import Post from './post.jsx';
 
 export default class Blog extends React.Component {
   render() {
@@ -71,7 +72,8 @@ export default class Blog extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+        {/* end featured posts */}
+      </div>{/* container */}
       
       <main role="main" className="container">
         <div className="row">
@@ -79,12 +81,14 @@ export default class Blog extends React.Component {
             <h3 className="pb-3 mb-4 font-italic border-bottom">{this.props.postsBlockHeadline}</h3>
           
             {/* render all posts */}
-            
+            {this.props.posts.map((item, index) => 
+              <Post key={index} name={item.name} date={item.date} author={item.author} content={item.content} />)}
+
             <nav className="blog-pagination">
               <a className="btn btn-outline-primary" href={this.props.blogPagination.older.href}>{this.props.blogPagination.older.text}</a>
               <a className="btn btn-outline-secondary disabled" href={this.props.blogPagination.newer.href}>{this.props.blogPagination.newer.text}</a>
             </nav>
-          </div>{/*blog-main*/}
+          </div>{/* blog-main */}
           
           <aside className="col-md-4 blog-sidebar">
             <div className="p-3 mb-3 bg-light rounded">
@@ -105,15 +109,12 @@ export default class Blog extends React.Component {
             </div>
           </aside>
 
-        </div>{/*row*/}
+        </div>{/* row */}
       </main>
       
       {/* render footer */}
       <footer className="blog-footer">
-        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        <p>
-          <a href="#">Back to top</a>
-        </p>
+        {this.props.footerContents}
       </footer>
       </div>
     );

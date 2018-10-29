@@ -15,6 +15,7 @@ ReactDOM.render(<Blog
   sidebarHeader={BlogConfig.sidebarHeader}
   sidebarArchives={BlogConfig.sidebarArchives}
   sidebarElsewhere={BlogConfig.sidebarElsewhere}
+  footerContents={BlogConfig.footerContents}
   />, 
   document.getElementById('app')
   );

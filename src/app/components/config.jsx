@@ -9,7 +9,7 @@ export default {
   headerCenterText: 'Header Center Text',
 
   headerSignupButton: {
-    text: 'Sign Up',
+    text: 'Sign Up Button',
     href: '#',
   },
   
@@ -39,7 +39,7 @@ export default {
       author: 'TestAuthor 1',
       group: 'Test Group 1',
       headline: 'Test post 1 headline',
-      content: 'Test post 1 content',
+      content: 'Test post 1 content Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
     {
       name: 'Test post 2 name',
@@ -47,7 +47,7 @@ export default {
       author: 'TestAuthor 2',
       group: 'Test Group 2',
       headline: 'Test post 2 headline',
-      content: 'Test post 2 content',
+      content: 'Test post 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
     {
       name: 'Test post 3 name',
@@ -55,7 +55,7 @@ export default {
       author: 'TestAuthor 3',
       group: 'Test Group 3',
       headline: 'Test post 3 headline',
-      content: 'Test post 3 content',
+      content: 'Test post 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
     {
       name: 'Test post 4 name',
@@ -63,7 +63,7 @@ export default {
       author: 'TestAuthor 4',
       group: 'Test Group 4',
       headline: 'Test post 4 headline',
-      content: 'Test post 4 content',
+      content: 'Test post 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
   ],
 
@@ -106,6 +106,7 @@ export default {
       {text: 'Twitter', href: '#'},
       {text: 'Facebook', href: '#'},
     ],
-  }
+  },
 
+  footerContents: <div><p>Footer content</p><p><a href="#">Back to top</a></p></div>,
 }
