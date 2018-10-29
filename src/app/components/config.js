@@ -1,7 +1,19 @@
 export default {
+  navbarItems: [
+    {name: 'NavItem 1', link: '#'},
+    {name: 'NavItem 2', link: '#'},
+    {name: 'NavItem 3', link: '#'},
+    {name: 'NavItem 4', link: '#'},
+    {name: 'NavItem 5', link: '#'},
+    {name: 'NavItem 6', link: '#'},
+    {name: 'NavItem 7', link: '#'},
+    {name: 'NavItem 8', link: '#'},
+  ],
+  
   featuredPosts: {
-    head: null,
-    boxes: [],
+    head: 'Test post 1 name',
+    leftBox: 'Test post 2 name',
+    rightBox: 'Test post 3 name',
   },
 
   posts: [
