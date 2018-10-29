@@ -91,31 +91,16 @@ export default class Blog extends React.Component {
               <h4 className="font-italic">{this.props.sidebarHeader.title}</h4>
               <p className="mb-0">{this.props.sidebarHeader.text}</p>
             </div>
-
             <div className="p-3">
-              <h4 className="font-italic">Archives</h4>
+              <h4 className="font-italic">{this.props.sidebarArchives.name}</h4>
               <ol className="list-unstyled mb-0">
-                <li><a href="#">March 2014</a></li>
-                <li><a href="#">February 2014</a></li>
-                <li><a href="#">January 2014</a></li>
-                <li><a href="#">December 2013</a></li>
-                <li><a href="#">November 2013</a></li>
-                <li><a href="#">October 2013</a></li>
-                <li><a href="#">September 2013</a></li>
-                <li><a href="#">August 2013</a></li>
-                <li><a href="#">July 2013</a></li>
-                <li><a href="#">June 2013</a></li>
-                <li><a href="#">May 2013</a></li>
-                <li><a href="#">April 2013</a></li>
+                {this.props.sidebarArchives.items.map((item, index) => <li key={index}><a href={item.href}>{item.text}</a></li>)}
               </ol>
             </div>
-
             <div className="p-3">
-              <h4 className="font-italic">Elsewhere</h4>
+              <h4 className="font-italic">{this.props.sidebarElsewhere.name}</h4>
               <ol className="list-unstyled">
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
+                {this.props.sidebarElsewhere.items.map((item, index) => <li key={index}><a href={item.href}>{item.text}</a></li>)}
               </ol>
             </div>
           </aside>

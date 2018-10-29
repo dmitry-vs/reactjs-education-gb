@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BlogConfig from './app/components/config';
+import BlogConfig from './app/components/config.jsx';
 import Blog from './app/components/blog.jsx';
 
 ReactDOM.render(<Blog 
@@ -13,6 +13,8 @@ ReactDOM.render(<Blog
   posts={BlogConfig.posts}
   blogPagination={BlogConfig.blogPagination}
   sidebarHeader={BlogConfig.sidebarHeader}
+  sidebarArchives={BlogConfig.sidebarArchives}
+  sidebarElsewhere={BlogConfig.sidebarElsewhere}
   />, 
   document.getElementById('app')
   );
