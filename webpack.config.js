@@ -29,7 +29,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin({filename: 'todolist.css'}),
+    new ExtractTextPlugin({
+      filename: 'blog.css',
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),
       filename: 'index.html',
