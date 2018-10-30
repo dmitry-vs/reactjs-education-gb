@@ -1,6 +1,7 @@
 import React from 'react';
 import Moment from 'react-moment';
 
+import Header from './header';
 import Navbar from './navbar';
 import Post from './post';
 
@@ -13,7 +14,14 @@ export default class Blog extends React.Component {
     return(
       <div id="wraper">
         <div className="container">
-          <header className="blog-header py-3">
+          <Header 
+            headerSubscribeLink={this.props.headerSubscribeLink} 
+            headerCenterText={this.props.headerCenterText}
+            headerSearchLink={this.props.headerSearchLink}
+            headerSignupButton={this.props.headerSignupButton}
+          />
+          
+          {/* <header className="blog-header py-3">
             <div className="row flex-nowrap justify-content-between align-items-center">
               <div className="col-4 pt-1">
                 <a className="text-muted" href={this.props.headerSubscribeLink.href}>{this.props.headerSubscribeLink.text}</a>
@@ -56,18 +64,12 @@ export default class Blog extends React.Component {
                       </div>
                     </div>
                   </div>
-                </div>{/* modal */}
+                </div>
               </div>
             </div>
-          </header>
+          </header> */}
           
           <Navbar navbarItems={this.props.navbarItems}/>
-
-          {/* <div className="nav-scroller py-1 mb-2">
-            <nav className="nav d-flex justify-content-between">
-              {this.props.navbarItems.map((item, index) => <a className="p-2 text-muted" href={item.href} key={index}>{item.text}</a>)}
-            </nav>
-          </div> */}
           
           {/* render featured posts */}
           <div className="jumbotron p-3 p-md-5 text-white rounded bg-dark">
