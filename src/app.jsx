@@ -14,10 +14,11 @@ ReactDOM.render(<Blog
   postsBlockHeadline={BlogConfig.postsBlockHeadline} 
   posts={BlogConfig.posts}
   blogPagination={BlogConfig.blogPagination}
-  sidebarHeader={BlogConfig.sidebarHeader}
-  sidebarArchives={BlogConfig.sidebarArchives}
-  sidebarElsewhere={BlogConfig.sidebarElsewhere}
-  footerContents={BlogConfig.footerContents}
+  sidebarContent={BlogConfig.sidebarContent}
+  // sidebarHeader={BlogConfig.sidebarHeader}
+  // sidebarArchives={BlogConfig.sidebarArchives}
+  // sidebarElsewhere={BlogConfig.sidebarElsewhere}
+  footerContents={BlogConfig.footerContent}
   />, 
   document.getElementById('app')
   );
