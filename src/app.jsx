@@ -5,10 +5,7 @@ import BlogConfig from './app/components/config';
 import Blog from './app/components/blog';
 
 ReactDOM.render(<Blog 
-  headerSubscribeLink={BlogConfig.headerSubscribeLink}
-  headerCenterText={BlogConfig.headerCenterText}
-  headerSearchLink={BlogConfig.headerSearchLink}
-  headerSignupButton={BlogConfig.headerSignupButton}
+  header={BlogConfig.header}
   navbarItems={BlogConfig.navbarItems}
   featuredPosts={BlogConfig.featuredPosts}
   modal={BlogConfig.modal}
@@ -19,4 +16,4 @@ ReactDOM.render(<Blog
   footerContent={BlogConfig.footerContent}
   />, 
   document.getElementById('app')
-  );
+);

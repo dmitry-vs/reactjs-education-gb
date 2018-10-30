@@ -1,17 +1,16 @@
 import React from 'react';
 
 export default {
-  headerSubscribeLink: {
-    text: 'Header Subscribe Link',
-    href: '#',
-  },
-
-  headerCenterText: 'Header Center Text',
-
-  headerSearchLink: '#',
-
-  headerSignupButton: {
-    text: 'Sign Up Button',
+  header: {
+    subscribeLink: {
+      text: 'Header Subscribe Link',
+      href: '#',
+    },
+    centerText: 'Header Center Text',
+    searchLink: '#',
+    signupButton: {
+      text: 'Sign Up Button',
+    },
   },
   
   navbarItems: [
@@ -24,7 +23,7 @@ export default {
     {text: 'NavItem 7', href: '#'},
     {text: 'NavItem 8', href: '#'},
   ],
-  
+
   featuredPosts: {
     head: 'Test post 1 name',
     leftBox: 'Test post 2 name',

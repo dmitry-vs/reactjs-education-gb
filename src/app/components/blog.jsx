@@ -16,10 +16,10 @@ export default class Blog extends React.Component {
       <div id="wraper">
         <div className="container">
           <Header 
-            subscribeLink={this.props.headerSubscribeLink} 
-            centerText={this.props.headerCenterText}
-            searchLink={this.props.headerSearchLink}
-            signupButton={this.props.headerSignupButton}
+            subscribeLink={this.props.header.subscribeLink} 
+            centerText={this.props.header.centerText}
+            searchLink={this.props.header.searchLink}
+            signupButton={this.props.header.signupButton}
             modal={this.props.modal}
           />
           
