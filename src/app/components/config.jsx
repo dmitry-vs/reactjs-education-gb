@@ -31,6 +31,14 @@ export default {
     rightBox: 'Test post 3 name',
   },
 
+  modal: {
+    title: 'Sign up',
+    emailPlaceholder: 'Enter your email',
+    passwordPlaceholder: 'Enter your password',
+    buttonCloseText: 'Close',
+    buttonSubmitText: 'Create account',
+  },
+
   postsBlockHeadline: 'Posts Block Headline',
 
   posts: [

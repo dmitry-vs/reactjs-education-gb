@@ -5,7 +5,7 @@ export default class Navbar extends React.Component {
     return(
       <div className="nav-scroller py-1 mb-2">
         <nav className="nav d-flex justify-content-between">
-          {this.props.navbarItems.map((item, index) => <a className="p-2 text-muted" href={item.href} key={index}>{item.text}</a>)}
+          {this.props.items.map((item, index) => <a className="p-2 text-muted" href={item.href} key={index}>{item.text}</a>)}
         </nav>
       </div>
     )

@@ -16,18 +16,19 @@ export default class Blog extends React.Component {
       <div id="wraper">
         <div className="container">
           <Header 
-            headerSubscribeLink={this.props.headerSubscribeLink} 
-            headerCenterText={this.props.headerCenterText}
-            headerSearchLink={this.props.headerSearchLink}
-            headerSignupButton={this.props.headerSignupButton}
+            subscribeLink={this.props.headerSubscribeLink} 
+            centerText={this.props.headerCenterText}
+            searchLink={this.props.headerSearchLink}
+            signupButton={this.props.headerSignupButton}
+            modal={this.props.modal}
           />
           
-          <Navbar navbarItems={this.props.navbarItems}/>
+          <Navbar items={this.props.navbarItems}/>
           
           <FeaturedPosts
-            featuredPostsHead={featuredPostsHead}
-            featuredPostLeft={featuredPostLeft}
-            featuredPostRight={featuredPostRight}
+            head={featuredPostsHead}
+            left={featuredPostLeft}
+            right={featuredPostRight}
           />
         </div>
       
@@ -54,10 +55,7 @@ export default class Blog extends React.Component {
           </div>{/* row */}
         </main>
         
-        {/* render footer */}
-        <footer className="blog-footer">
-          {this.props.footerContent}
-        </footer>
+        <footer className="blog-footer">{this.props.footerContent}</footer>
       </div>//wrapper
     );
   }

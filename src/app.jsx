@@ -11,14 +11,12 @@ ReactDOM.render(<Blog
   headerSignupButton={BlogConfig.headerSignupButton}
   navbarItems={BlogConfig.navbarItems}
   featuredPosts={BlogConfig.featuredPosts}
+  modal={BlogConfig.modal}
   postsBlockHeadline={BlogConfig.postsBlockHeadline} 
   posts={BlogConfig.posts}
   blogPagination={BlogConfig.blogPagination}
   sidebarContent={BlogConfig.sidebarContent}
-  // sidebarHeader={BlogConfig.sidebarHeader}
-  // sidebarArchives={BlogConfig.sidebarArchives}
-  // sidebarElsewhere={BlogConfig.sidebarElsewhere}
-  footerContents={BlogConfig.footerContent}
+  footerContent={BlogConfig.footerContent}
   />, 
   document.getElementById('app')
   );
