@@ -10,7 +10,6 @@ import Sidebar from './sidebar';
 // add new post
 // delete post
 // edit post
-// hide/show post by click on its title
 // greeting modal
 
 export default class Blog extends React.Component {
