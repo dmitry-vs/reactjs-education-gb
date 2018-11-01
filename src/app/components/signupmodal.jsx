@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Modal extends React.Component {
+export default class SignUpModal extends React.Component {
   render() {
     return(
       <div className="modal fade" id="signupModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel">

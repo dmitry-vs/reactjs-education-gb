@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class AddPost extends React.Component {
+export default class AddPostForm extends React.Component {
   render() {
     return(
       <div>

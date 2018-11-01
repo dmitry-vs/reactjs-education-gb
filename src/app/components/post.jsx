@@ -30,7 +30,7 @@ export default class Post extends React.Component {
         {postContent}
         
         <div className="btn-group">
-          <button type="button" className="btn btn-warning button-edit-post">Edit</button>
+          <button type="button" className="btn btn-warning button-edit-post" data-toggle="modal" data-target="#edit-post-modal">Edit</button>
           <button type="button" className="btn btn-danger button-delete-post">Delete</button>
         </div>
         <hr/>

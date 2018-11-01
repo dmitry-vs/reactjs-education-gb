@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Modal from './modal';
+import SignUpModal from './signupmodal';
 
 export default class Header extends React.Component {
   render() {
@@ -23,7 +23,7 @@ export default class Header extends React.Component {
             <button className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#signupModal">
               {this.props.signupButton.text}
             </button>
-            <Modal 
+            <SignUpModal 
               title={this.props.modal.title}
               emailPlaceholder={this.props.modal.emailPlaceholder}
               passwordPlaceholder={this.props.modal.passwordPlaceholder}
