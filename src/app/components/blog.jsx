@@ -2,7 +2,6 @@ import React from 'react';
 
 import Header from './header';
 import Navbar from './navbar';
-import FeaturedPosts from './featuredPosts';
 import Post from './post';
 import Sidebar from './sidebar';
 
@@ -13,11 +12,15 @@ import Sidebar from './sidebar';
 // add new post (make featured if necessary)
 
 export default class Blog extends React.Component {
-  render() {
-    let featuredPostsHead = this.props.posts.filter(post => post.name === this.props.featuredPosts.head)[0];
-    let featuredPostLeft = this.props.posts.filter(post => post.name === this.props.featuredPosts.leftBox)[0];
-    let featuredPostRight = this.props.posts.filter(post => post.name === this.props.featuredPosts.rightBox)[0];
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      posts: this.props.posts,
+    };
+  }
+  
+  render() {
     return(
       <div id="wraper">
         <div className="container">
@@ -28,14 +31,7 @@ export default class Blog extends React.Component {
             signupButton={this.props.header.signupButton}
             modal={this.props.modal}
           />
-          
           <Navbar items={this.props.navbarItems}/>
-          
-          <FeaturedPosts
-            head={featuredPostsHead}
-            left={featuredPostLeft}
-            right={featuredPostRight}
-          />
         </div>
       
         <main role="main" className="container">
@@ -44,7 +40,7 @@ export default class Blog extends React.Component {
               <h3 className="pb-3 mb-4 font-italic border-bottom">{this.props.postsBlockHeadline}</h3>
             
               {/* render all posts */}
-              {this.props.posts.map((item, index) => 
+              {this.state.posts.map((item, index) => 
                 <Post key={index} name={item.name} date={item.date} author={item.author} content={item.content} />)}
 
               <nav className="blog-pagination">

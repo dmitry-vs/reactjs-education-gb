@@ -7,7 +7,6 @@ import Blog from './app/components/blog';
 ReactDOM.render(<Blog 
   header={BlogConfig.header}
   navbarItems={BlogConfig.navbarItems}
-  featuredPosts={BlogConfig.featuredPosts}
   modal={BlogConfig.modal}
   postsBlockHeadline={BlogConfig.postsBlockHeadline} 
   posts={BlogConfig.posts}

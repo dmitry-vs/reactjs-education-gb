@@ -10,6 +10,10 @@ export default class Post extends React.Component {
           <Moment format="MMMM D, YYYY">{this.props.date}</Moment> by <a href="#">{this.props.author}</a>
         </p>
         {this.props.content}
+        <br/><br/>
+        <button>Edit</button>
+        <button>Delete</button>
+        <hr/>
       </div>
     )
   }

@@ -24,12 +24,6 @@ export default {
     {text: 'NavItem 8', href: '#'},
   ],
 
-  featuredPosts: {
-    head: 'Test post 1 name',
-    leftBox: 'Test post 2 name',
-    rightBox: 'Test post 3 name',
-  },
-
   modal: {
     title: 'Sign up',
     emailPlaceholder: 'Enter your email',
