@@ -7,11 +7,11 @@ import Post from './post';
 import Sidebar from './sidebar';
 
 // todo:
-// delete post
 // edit post
-// greeting modal
+// greeting modal with readme
 // move add post form to modal
-// add all posts on page load (pre-load)
+// * add all posts on page load (pre-load)
+// * replace randomIndex with generateId hash function
 
 export default class Blog extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ export default class Blog extends React.Component {
               <AddPost/>
 
               {this.state.posts.map((item, index) => 
-                <Post key={index} title={item.title} date={item.date} author={item.author} content={item.content} />)}
+                <Post key={index} id={item.id} title={item.title} date={item.date} author={item.author} content={item.content} />)}
 
               <nav className="blog-pagination">
                 <a className="btn btn-outline-primary" href={this.props.blogPagination.older.href}>{this.props.blogPagination.older.text}</a>
@@ -80,8 +80,10 @@ export default class Blog extends React.Component {
   }
 
   componentDidMount() {
+    // add post
     let $addPostForm = document.getElementById('add-post-form');
     $addPostForm.addEventListener('submit', event => {
+      event.preventDefault();
       let $title = document.getElementById('add-post-title');
       let $author = document.getElementById('add-post-author');
       let $content = document.getElementById('add-post-content');
@@ -92,10 +94,18 @@ export default class Blog extends React.Component {
         return;
       }
 
-      let id = this.randomIndex(10000, 20000);
+      let id = this.randomIndex(10000, 20000).toString();
       let date = new Date();
       this.addPost(id, title, date, author, content);
       [$title.value, $author.value, $content.value] = ['', '', ''];
     });
+
+    // delete post
+    document.querySelector('body').addEventListener('click', (event) => {
+      if(event.target.classList.contains('button-delete-post')) {
+        let $post = event.target.parentNode.parentNode;
+        this.delPost($post.getAttribute('data-id'));
+      }
+    }, true);
   }
 }

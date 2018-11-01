@@ -21,7 +21,7 @@ export default class Post extends React.Component {
     }
     
     return(
-      <div className="blog-post">
+      <div className="blog-post" data-id={this.props.id}>
         <h2 className="blog-post-title" onClick={this.onShowContent} style={{cursor: 'pointer'}}>{this.props.title}</h2>
         <p className="blog-post-meta">
           <Moment format="MMMM D, YYYY">{this.props.date}</Moment> by <a href="#">{this.props.author}</a>
@@ -30,8 +30,8 @@ export default class Post extends React.Component {
         {postContent}
         
         <div className="btn-group">
-          <button type="button" className="btn btn-warning">Edit</button>
-          <button type="button" className="btn btn-danger">Delete</button>
+          <button type="button" className="btn btn-warning button-edit-post">Edit</button>
+          <button type="button" className="btn btn-danger button-delete-post">Delete</button>
         </div>
         <hr/>
       </div>
