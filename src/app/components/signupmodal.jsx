@@ -7,19 +7,19 @@ export default class SignUpModal extends React.Component {
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h4 className="modal-title" id="exampleModalLabel">{this.props.title}</h4>
+              <h4 className="modal-title" id="exampleModalLabel">Sign up</h4>
               <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div className="modal-body">
               <form>
-                <input type="text" className="form-control" placeholder={this.props.emailPlaceholder}/>
+                <input type="text" className="form-control" placeholder="Email"/>
                 <br/>
-                <input type="text" className="form-control" placeholder={this.props.passwordPlaceholder}/>
+                <input type="text" className="form-control" placeholder="Password"/>
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-default" data-dismiss="modal">{this.props.buttonCloseText}</button>
-              <button type="button" className="btn btn-primary">{this.props.buttonSubmitText}</button>
+              <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Sign up</button>
             </div>
           </div>
         </div>

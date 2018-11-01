@@ -17,13 +17,7 @@ export default class Blog extends React.Component {
     return(
       <div id="wraper">
         <div className="container">
-          <Header 
-            subscribeLink={this.props.header.subscribeLink} 
-            centerText={this.props.header.centerText}
-            searchLink={this.props.header.searchLink}
-            signupButton={this.props.header.signupButton}
-            modal={this.props.modal}
-          />
+          <Header/>
           <Navbar items={this.props.navbarItems}/>
         </div>
       
@@ -36,12 +30,11 @@ export default class Blog extends React.Component {
 
               {[...this.state.posts].reverse().map((item, index) => 
                 <Post key={index} id={item.id} title={item.title} date={item.date} author={item.author} content={item.content} />)}
-              
               <EditPostModal/>
 
               <nav className="blog-pagination">
-                <a className="btn btn-outline-primary" href={this.props.blogPagination.older.href}>{this.props.blogPagination.older.text}</a>
-                <a className="btn btn-outline-secondary disabled" href={this.props.blogPagination.newer.href}>{this.props.blogPagination.newer.text}</a>
+                <a className="btn btn-outline-primary" href="#">Older</a>
+                <a className="btn btn-outline-secondary disabled" href="#">Newer</a>
               </nav>
             </div>
             
@@ -53,7 +46,10 @@ export default class Blog extends React.Component {
           </div>{/* row */}
         </main>
         
-        <footer className="blog-footer">{this.props.footerContent}</footer>
+        <footer className="blog-footer">
+          <p>Footer content</p>
+          <p><a href="#">Back to top</a></p>
+        </footer>
       </div>//wrapper
     );
   }

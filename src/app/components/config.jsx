@@ -1,18 +1,6 @@
 import React from 'react';
 
 export default {
-  header: {
-    subscribeLink: {
-      text: 'Subscribe Link',
-      href: '#',
-    },
-    centerText: 'Center Text',
-    searchLink: '#',
-    signupButton: {
-      text: 'Sign Up Button',
-    },
-  },
-  
   navbarItems: [
     {text: 'NavItem 1', href: '#'},
     {text: 'NavItem 2', href: '#'},
@@ -23,16 +11,6 @@ export default {
     {text: 'NavItem 7', href: '#'},
     {text: 'NavItem 8', href: '#'},
   ],
-
-  modal: {
-    title: 'Sign up',
-    emailPlaceholder: 'Enter your email',
-    passwordPlaceholder: 'Enter your password',
-    buttonCloseText: 'Close',
-    buttonSubmitText: 'Create account',
-  },
-
-  postsBlockHeadline: 'Posts Block Headline',
 
   posts: [
     {
@@ -65,17 +43,6 @@ export default {
     },
   ],
 
-  blogPagination: {
-    older: {
-      href: '#',
-      text: 'Older',
-    },
-    newer: {
-      href: '#',
-      text: 'Newer',
-    },
-  },
-
   sidebarContent: {
     header: {
       title: 'Sidebar header',
@@ -107,6 +74,4 @@ export default {
       ],
     },
   },
-
-  footerContent: <div><p>Footer content</p><p><a href="#">Back to top</a></p></div>,
 }
