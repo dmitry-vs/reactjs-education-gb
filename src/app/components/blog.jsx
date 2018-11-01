@@ -6,6 +6,12 @@ import FeaturedPosts from './featuredPosts';
 import Post from './post';
 import Sidebar from './sidebar';
 
+// todo:
+// delete post (if it was featured, corresponding block must disappear from page)
+// edit post
+// create new post
+// add new post (make featured if necessary)
+
 export default class Blog extends React.Component {
   render() {
     let featuredPostsHead = this.props.posts.filter(post => post.name === this.props.featuredPosts.head)[0];
