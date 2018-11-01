@@ -1,13 +1,11 @@
 import React from 'react';
+import Crypto from 'crypto';
 
 import Header from './header';
 import Navbar from './navbar';
 import Post from './post';
-import EditPostModal from './editpostmodal';
+import EditPostModal from './editPostModal';
 import Sidebar from './sidebar';
-
-// todo:
-// * replace randomIndex with generateId hash function
 
 export default class Blog extends React.Component {
   constructor(props) {
@@ -58,10 +56,6 @@ export default class Blog extends React.Component {
         <footer className="blog-footer">{this.props.footerContent}</footer>
       </div>//wrapper
     );
-  }
-
-  randomIndex(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   addPost(id, title, date, author, content) {
@@ -145,7 +139,7 @@ It is possible to create, update and delete posts.`
       if(id) {
         this.updatePost(id, title, author, content);
       } else {
-        let id = this.randomIndex(10000, 20000).toString();
+        let id = Crypto.randomBytes(10).toString('hex');
         let date = new Date();
         this.addPost(id, title, date, author, content);
       }

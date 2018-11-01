@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignUpModal from './signupmodal';
+import SignUpModal from './signUpModal';
 
 export default class Header extends React.Component {
   render() {
