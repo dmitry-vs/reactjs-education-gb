@@ -2,16 +2,11 @@ import React from 'react';
 
 import Header from './header';
 import Navbar from './navbar';
-import AddPostForm from './addpostform';
 import Post from './post';
 import EditPostModal from './editpostmodal';
 import Sidebar from './sidebar';
 
 // todo:
-// edit post
-// greeting modal with readme
-// move add post form to modal
-// * add all posts on page load (pre-load)
 // * replace randomIndex with generateId hash function
 
 export default class Blog extends React.Component {
@@ -37,9 +32,11 @@ export default class Blog extends React.Component {
         <main role="main" className="container">
           <div className="row">
             <div className="col-md-8 blog-main">
-              <AddPostForm/>
+              <button type="submit" className="btn btn-success" id="button-add-post" data-toggle="modal" data-target="#edit-post-modal">
+                Add post
+              </button><hr/><br/>
 
-              {this.state.posts.map((item, index) => 
+              {[...this.state.posts].reverse().map((item, index) => 
                 <Post key={index} id={item.id} title={item.title} date={item.date} author={item.author} content={item.content} />)}
               
               <EditPostModal/>
@@ -95,26 +92,13 @@ export default class Blog extends React.Component {
   }
 
   componentDidMount() {
-    // add post
-    let $addPostForm = document.getElementById('add-post-form');
-    $addPostForm.addEventListener('submit', event => {
-      event.preventDefault();
-      let $title = document.getElementById('add-post-title');
-      let $author = document.getElementById('add-post-author');
-      let $content = document.getElementById('add-post-content');
-      
-      let [title, author, content] = [$title.value, $author.value, $content.value];
-      if(!title || !author || !content) {
-        alert('Form fields must be non-empty');
-        return;
-      }
-
-      let id = this.randomIndex(10000, 20000).toString();
-      let date = new Date();
-      this.addPost(id, title, date, author, content);
-      [$title.value, $author.value, $content.value] = ['', '', ''];
-    });
-
+    // greeting
+    alert(
+`Welcome to simple React blog!
+Post titles collapse/expand on click.
+It is possible to create, update and delete posts.`
+    );
+    
     // delete post
     document.querySelector('body').addEventListener('click', (event) => {
       if(event.target.classList.contains('button-delete-post')) {
@@ -123,11 +107,12 @@ export default class Blog extends React.Component {
       }
     }, true);
 
-    // edit post
     let $editPostFormPostId = document.getElementById('edit-post-id');
     let $editPostFormPostTitle = document.getElementById('edit-post-title');
     let $editPostFormPostAuthor = document.getElementById('edit-post-author');
     let $editPostFormPostContent = document.getElementById('edit-post-content');
+    
+    // edit post
     document.querySelector('body').addEventListener('click', (event) => {
       if(event.target.classList.contains('button-edit-post')) {
         let $post = event.target.parentNode.parentNode;
@@ -142,6 +127,7 @@ export default class Blog extends React.Component {
       }
     }, true);
     
+    // edit post and add post modal form submit handling
     let $editPostForm = document.getElementById('edit-post-form');
     $editPostForm.addEventListener('submit', event => {
       event.preventDefault();
@@ -156,9 +142,23 @@ export default class Blog extends React.Component {
         return;
       }
 
-      this.updatePost(id, title, author, content);
-
+      if(id) {
+        this.updatePost(id, title, author, content);
+      } else {
+        let id = this.randomIndex(10000, 20000).toString();
+        let date = new Date();
+        this.addPost(id, title, date, author, content);
+      }
+      
       // clear modal #edit-post-form
+      $editPostFormPostId.value = '';
+      $editPostFormPostTitle.value = '';
+      $editPostFormPostAuthor.value = '';
+      $editPostFormPostContent.value = '';
+    });
+
+    // also need to clear modal #edit-post-form on add post button click
+    document.getElementById('button-add-post').addEventListener('click', event => {
       $editPostFormPostId.value = '';
       $editPostFormPostTitle.value = '';
       $editPostFormPostAuthor.value = '';
