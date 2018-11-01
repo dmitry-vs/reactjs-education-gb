@@ -2,14 +2,16 @@ import React from 'react';
 
 import Header from './header';
 import Navbar from './navbar';
+import AddPost from './addpost';
 import Post from './post';
 import Sidebar from './sidebar';
 
 // todo:
-// delete post (if it was featured, corresponding block must disappear from page)
+// add new post
+// delete post
 // edit post
-// create new post
-// add new post (make featured if necessary)
+// hide/show post by click on its title
+// greeting modal
 
 export default class Blog extends React.Component {
   constructor(props) {
@@ -37,9 +39,8 @@ export default class Blog extends React.Component {
         <main role="main" className="container">
           <div className="row">
             <div className="col-md-8 blog-main">
-              <h3 className="pb-3 mb-4 font-italic border-bottom">{this.props.postsBlockHeadline}</h3>
-            
-              {/* render all posts */}
+              <AddPost/>
+
               {this.state.posts.map((item, index) => 
                 <Post key={index} name={item.name} date={item.date} author={item.author} content={item.content} />)}
 
@@ -47,7 +48,7 @@ export default class Blog extends React.Component {
                 <a className="btn btn-outline-primary" href={this.props.blogPagination.older.href}>{this.props.blogPagination.older.text}</a>
                 <a className="btn btn-outline-secondary disabled" href={this.props.blogPagination.newer.href}>{this.props.blogPagination.newer.text}</a>
               </nav>
-            </div>{/* blog-main */}
+            </div>
             
             <Sidebar 
               header={this.props.sidebarContent.header}

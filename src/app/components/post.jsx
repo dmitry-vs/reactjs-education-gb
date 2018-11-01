@@ -2,6 +2,13 @@ import React from 'react';
 import Moment from 'react-moment';
 
 export default class Post extends React.Component {
+  constructor(props) {
+    super(props);
+
+    
+
+  }
+  
   render() {
     return(
       <div className="blog-post">
@@ -11,8 +18,10 @@ export default class Post extends React.Component {
         </p>
         {this.props.content}
         <br/><br/>
-        <button>Edit</button>
-        <button>Delete</button>
+        <div className="btn-group">
+          <button type="button" className="btn btn-warning">Edit</button>
+          <button type="button" className="btn btn-danger">Delete</button>
+        </div>
         <hr/>
       </div>
     )
