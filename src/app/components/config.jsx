@@ -3,10 +3,10 @@ import React from 'react';
 export default {
   header: {
     subscribeLink: {
-      text: 'Header Subscribe Link',
+      text: 'Subscribe Link',
       href: '#',
     },
-    centerText: 'Header Center Text',
+    centerText: 'Center Text',
     searchLink: '#',
     signupButton: {
       text: 'Sign Up Button',
@@ -36,35 +36,27 @@ export default {
 
   posts: [
     {
-      name: 'Test post 1 name',
+      title: 'Test post 1 title',
       date: '2018-10-29T14:10:15.404Z',
       author: 'TestAuthor 1',
-      group: 'Test Group 1',
-      headline: 'Test post 1 headline',
       content: 'Test post 1 content Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
     {
-      name: 'Test post 2 name',
+      title: 'Test post 2 title',
       date: '2018-10-29T14:10:35.403Z',
       author: 'TestAuthor 2',
-      group: 'Test Group 2',
-      headline: 'Test post 2 headline',
       content: 'Test post 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
     {
-      name: 'Test post 3 name',
+      title: 'Test post 3 title',
       date: '2018-10-29T14:10:42.698Z',
       author: 'TestAuthor 3',
-      group: 'Test Group 3',
-      headline: 'Test post 3 headline',
       content: 'Test post 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
     {
-      name: 'Test post 4 name',
+      title: 'Test post 4 title',
       date: '2018-10-29T14:10:50.251Z',
       author: 'TestAuthor 4',
-      group: 'Test Group 4',
-      headline: 'Test post 4 headline',
       content: 'Test post 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo unde hic illo! Assumenda ad, ipsum dolorem laboriosam magni recusandae quae sed necessitatibus sapiente, eveniet amet delectus sequi? Voluptatem vel ullam possimus? Consequuntur sed eos laborum, sapiente nulla placeat veritatis sequi, atque iste quae laboriosam quas minus officiis quaerat, error alias?',
     },
   ],

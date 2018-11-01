@@ -5,7 +5,7 @@ export default class AddPost extends React.Component {
     return(
       <div>
         <h3 className="pb-3 mb-4 font-italic border-bottom">Add post</h3>
-        <form>
+        <form id="add-post-form">
           <div className="form-group">
             <label htmlFor="add-post-title">New post title</label>
             <input type="text" id="add-post-title" className="form-control" placeholder="Title"/>
@@ -18,7 +18,7 @@ export default class AddPost extends React.Component {
             <label htmlFor="add-post-content">New post content</label>
             <textarea id="add-post-content" className="form-control" rows="4" placeholder="Content"/>
           </div>
-          <button className="btn btn-primary">Add post</button>
+          <button type="submit" className="btn btn-primary">Add post</button>
         </form>
         <hr/><br/>
       </div>

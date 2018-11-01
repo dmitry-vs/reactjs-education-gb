@@ -7,18 +7,16 @@ import Post from './post';
 import Sidebar from './sidebar';
 
 // todo:
-// add new post
 // delete post
 // edit post
 // greeting modal
+// move add post form to modal
+// add all posts on page load (pre-load)
 
 export default class Blog extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      posts: this.props.posts,
-    };
+    this.state = {posts: this.props.posts};
   }
   
   render() {
@@ -41,7 +39,7 @@ export default class Blog extends React.Component {
               <AddPost/>
 
               {this.state.posts.map((item, index) => 
-                <Post key={index} name={item.name} date={item.date} author={item.author} content={item.content} />)}
+                <Post key={index} title={item.title} date={item.date} author={item.author} content={item.content} />)}
 
               <nav className="blog-pagination">
                 <a className="btn btn-outline-primary" href={this.props.blogPagination.older.href}>{this.props.blogPagination.older.text}</a>
@@ -60,5 +58,44 @@ export default class Blog extends React.Component {
         <footer className="blog-footer">{this.props.footerContent}</footer>
       </div>//wrapper
     );
+  }
+
+  randomIndex(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  addPost(id, title, date, author, content) {
+    this.state.posts.push({id, title, date, author, content});
+    this.setState({posts: this.state.posts});
+  }
+
+  delPost(id) {
+    let index = this.state.posts.findIndex(item => item.id === id);
+    if(index === -1) {
+      alert(`Failed to delete: no post found with id ${id}`);
+      return;
+    }
+    this.state.posts.splice(index, 1);
+    this.setState({posts: this.state.posts});
+  }
+
+  componentDidMount() {
+    let $addPostForm = document.getElementById('add-post-form');
+    $addPostForm.addEventListener('submit', event => {
+      let $title = document.getElementById('add-post-title');
+      let $author = document.getElementById('add-post-author');
+      let $content = document.getElementById('add-post-content');
+      
+      let [title, author, content] = [$title.value, $author.value, $content.value];
+      if(!title || !author || !content) {
+        alert('Form fields must be non-empty');
+        return;
+      }
+
+      let id = this.randomIndex(10000, 20000);
+      let date = new Date();
+      this.addPost(id, title, date, author, content);
+      [$title.value, $author.value, $content.value] = ['', '', ''];
+    });
   }
 }

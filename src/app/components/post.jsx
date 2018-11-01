@@ -22,7 +22,7 @@ export default class Post extends React.Component {
     
     return(
       <div className="blog-post">
-        <h2 className="blog-post-title" onClick={this.onShowContent} style={{cursor: 'pointer'}}>{this.props.name}</h2>
+        <h2 className="blog-post-title" onClick={this.onShowContent} style={{cursor: 'pointer'}}>{this.props.title}</h2>
         <p className="blog-post-meta">
           <Moment format="MMMM D, YYYY">{this.props.date}</Moment> by <a href="#">{this.props.author}</a>
         </p>
