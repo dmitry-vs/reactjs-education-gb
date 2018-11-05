@@ -2,10 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import Post from '../components/post';
-import EditPostModal from '../components/editPostModal';
-import Config from '../components/config';
 
-// comments page - get and render comments from web
 // comments page - add links to corresponding posts
 // users page - get and render users from web
 // * users page - show info (modal?) on click with all posts

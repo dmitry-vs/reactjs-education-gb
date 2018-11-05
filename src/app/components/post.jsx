@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Comment from './comment';
+
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -18,10 +20,7 @@ export default class Post extends React.Component {
         {this.props.content}<br/><br/>
         <ul>
           {this.props.comments.map((comment, index) => 
-            <li key={index}>
-              <h5>{comment.name}</h5>by <strong>{comment.email}</strong>
-              <p>{comment.body}</p>
-            </li>
+            <li key={index}><Comment name={comment.name} email={comment.email} body={comment.body}/></li>
           )}
         </ul>
         <br/>
