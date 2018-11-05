@@ -11,7 +11,7 @@ export default class Header extends React.Component {
             <a className="text-muted" href="#">Subscribe</a>
           </div>
           <div className="col-4 text-center">
-            <a className="blog-header-logo text-dark" href="#">Center Text</a>
+            <a className="blog-header-logo text-dark" href="#">Learn ReactJS</a>
           </div>
           <div className="col-4 d-flex justify-content-end align-items-center">
             <a className="text-muted" href="#">
