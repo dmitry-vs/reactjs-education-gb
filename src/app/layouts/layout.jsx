@@ -1,9 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router';
 
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Config from '../components/config';
+import Sidebar from '../components/sidebar';
 
 // import BlogConfig from './app/components/config';
 // import Blog from './app/components/blog';
@@ -29,7 +29,14 @@ export default class Layout extends React.Component {
       
         <main role="main" className="container">
           <div className="row">
-            {this.props.children}
+            <div className="col-md-8 blog-main">
+              {this.props.children}
+            </div>
+            <Sidebar 
+              header={Config.sidebarContent.header}
+              archives={Config.sidebarContent.archives}
+              elsewhere={Config.sidebarContent.elsewhere}
+            />
           </div>{/* row */}
         </main>
         
