@@ -5,8 +5,6 @@ import Post from '../components/post';
 import EditPostModal from '../components/editPostModal';
 import Config from '../components/config';
 
-// blog page - get and render posts from web
-// blog page - add comments to posts
 // comments page - get and render comments from web
 // comments page - add links to corresponding posts
 // users page - get and render users from web
@@ -19,31 +17,44 @@ export default class Blog extends React.Component {
 
     this.state = {
       posts: [],
+      users: [],
+      comments: [],
     }
-
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then(response => this.setState({posts: response.data}));
   }
   
+  componentWillMount() {
+    axios.all([
+      axios.get('https://jsonplaceholder.typicode.com/posts'),
+      axios.get('https://jsonplaceholder.typicode.com/users'),
+      axios.get('https://jsonplaceholder.typicode.com/comments'),
+    ])
+    .then(axios.spread((posts, users, comments) => {
+      this.setState({
+        posts: posts.data.filter(item => item.hasOwnProperty('title')), 
+        users: users.data,
+        comments: comments.data,
+      });
+    }));
+  }
+
   render() {
-    if(!this.state.posts.length) {
-      return null; // posts not loaded yet
+    if(!this.state.posts.length || !this.state.users.length) {
+      return null; // data not loaded yet
     }
     
+    console.log(this.state);
+
     return(
       <div>
         <h1>Blog</h1>
         <p>This is Blog page</p>
         <hr/>
 
-        {this.state.posts.reverse().map((item, index) => 
-          <Post key={index} id={item.id} title={item.title} date={item.date} author={item.userId} content={item.body} />)}
-        <EditPostModal/>
-
-        <nav className="blog-pagination">
-          <a className="btn btn-outline-primary" href="#">Older</a>
-          <a className="btn btn-outline-secondary disabled" href="#">Newer</a>
-        </nav>
+        {this.state.posts.map((item, index) => {
+          let username = this.state.users.filter(user => user.id === item.userId)[0].username;
+          let comments = this.state.comments.filter(comment => comment.postId === item.id);
+          return <Post key={index} id={item.id} title={item.title} content={item.body} author={username} comments={comments}/>
+        })}
       </div>
     )
   }

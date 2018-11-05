@@ -16,6 +16,15 @@ export default class Post extends React.Component {
     if(this.state.showContent) {
       postContent = <div>
         {this.props.content}<br/><br/>
+        <ul>
+          {this.props.comments.map((comment, index) => 
+            <li key={index}>
+              <h5>{comment.name}</h5>by <strong>{comment.email}</strong>
+              <p>{comment.body}</p>
+            </li>
+          )}
+        </ul>
+        <br/>
       </div>
     }
     
@@ -23,9 +32,7 @@ export default class Post extends React.Component {
       <div className="blog-post" data-id={this.props.id}>
         <h2 className="blog-post-title" onClick={this.onShowContent} style={{cursor: 'pointer'}}>{this.props.title}</h2>
         <p className="blog-post-meta">by <a href="#">{this.props.author}</a></p>
-        
         {postContent}
-        
         <hr/>
       </div>
     )
