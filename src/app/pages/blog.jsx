@@ -7,6 +7,7 @@ import Post from '../components/post';
 // users page - get and render users from web
 // * users page - show info (modal?) on click with all posts
 // * blog - show info (modal?) on click with user info
+// blog and comments - show emails as links with mailto
 
 export default class Blog extends React.Component {
   constructor(props) {
@@ -17,11 +18,16 @@ export default class Blog extends React.Component {
       users: [],
       comments: [],
     }
+
+    this.postsUrl = 'https://jsonplaceholder.typicode.com/posts';
+    if(this.props.location.query.postId) {
+      this.postsUrl += `?id=${this.props.location.query.postId}`;
+    }
   }
   
   componentWillMount() {
     axios.all([
-      axios.get('https://jsonplaceholder.typicode.com/posts'),
+      axios.get(this.postsUrl),
       axios.get('https://jsonplaceholder.typicode.com/users'),
       axios.get('https://jsonplaceholder.typicode.com/comments'),
     ])

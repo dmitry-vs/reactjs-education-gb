@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router';
 
 import Comment from '../components/comment';
 
@@ -25,8 +26,10 @@ export default class Comments extends React.Component {
         <hr/>
         <ul>
           {this.state.comments.map((comment, index) => 
-            <li key={index}><Comment name={comment.name} email={comment.email} body={comment.body}/>
-            
+            <li key={index}>
+              <Comment name={comment.name} email={comment.email} body={comment.body}/>
+              <Link to={`/blog?postId=${comment.postId}`}>See post</Link>
+              <br/><br/>
             </li>
           )}
         </ul>
