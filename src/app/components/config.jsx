@@ -2,10 +2,10 @@ import React from 'react';
 
 export default {
   navbarItems: [
-    {text: 'Main', href: '#'},
-    {text: 'Blog', href: '#'},
-    {text: 'Comments', href: '#'},
-    {text: 'Users', href: '#'},
+    {text: 'Main', href: '/'},
+    {text: 'Blog', href: '/blog'},
+    {text: 'Comments', href: '/comments'},
+    {text: 'Users', href: '/users'},
   ],
 
   posts: [
