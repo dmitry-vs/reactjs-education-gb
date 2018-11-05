@@ -11,10 +11,15 @@ export default class Users extends React.Component {
     this.state = {
       users: [],
     }
+
+    this.url = 'https://jsonplaceholder.typicode.com/users';
+    if(this.props.location.query.username) {
+      this.url += `?username=${this.props.location.query.username}`;
+    }
   }
   
   componentWillMount() {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get(this.url)
     .then(response => this.setState({users: response.data}));
   }
 

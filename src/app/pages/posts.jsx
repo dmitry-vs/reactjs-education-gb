@@ -3,9 +3,6 @@ import axios from 'axios';
 
 import Post from '../components/post';
 
-// users page - add links to see user's posts
-// users page - add links to see user's comments
-// blog - add links to see user for each post
 // blog and comments - show emails as links with mailto
 
 export default class Blog extends React.Component {
@@ -21,6 +18,8 @@ export default class Blog extends React.Component {
     this.postsUrl = 'https://jsonplaceholder.typicode.com/posts';
     if(this.props.location.query.postId) {
       this.postsUrl += `?id=${this.props.location.query.postId}`;
+    } else if(this.props.location.query.userId) {
+      this.postsUrl += `?userId=${this.props.location.query.userId}`;
     }
   }
   
@@ -40,12 +39,6 @@ export default class Blog extends React.Component {
   }
 
   render() {
-    if(!this.state.posts.length || !this.state.users.length) {
-      return null; // data not loaded yet
-    }
-    
-    console.log(this.state);
-
     return(
       <div>
         <h1>Posts</h1>

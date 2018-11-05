@@ -11,10 +11,15 @@ export default class Comments extends React.Component {
     this.state = {
       comments: [],
     }
+
+    this.url = 'https://jsonplaceholder.typicode.com/comments';
+    if(this.props.location.query.email) {
+      this.url += `?email=${this.props.location.query.email}`;
+    }
   }
   
   componentWillMount() {
-    axios.get('https://jsonplaceholder.typicode.com/comments')
+    axios.get(this.url)
     .then(response => this.setState({comments: response.data}));
   }
   
