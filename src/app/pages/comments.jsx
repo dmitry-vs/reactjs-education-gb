@@ -28,7 +28,7 @@ export default class Comments extends React.Component {
           {this.state.comments.map((comment, index) => 
             <li key={index}>
               <Comment name={comment.name} email={comment.email} body={comment.body}/>
-              <Link to={`/blog?postId=${comment.postId}`}>See post</Link>
+              <Link to={`/posts?postId=${comment.postId}`}>See post</Link>
               <br/><br/>
             </li>
           )}

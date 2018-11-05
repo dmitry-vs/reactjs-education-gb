@@ -3,7 +3,7 @@ import React from 'react';
 export default {
   navbarItems: [
     {text: 'Main', href: '/'},
-    {text: 'Blog', href: '/blog'},
+    {text: 'Posts', href: '/posts'},
     {text: 'Comments', href: '/comments'},
     {text: 'Users', href: '/users'},
   ],

@@ -3,10 +3,9 @@ import axios from 'axios';
 
 import Post from '../components/post';
 
-// comments page - add links to corresponding posts
-// users page - get and render users from web
-// * users page - show info (modal?) on click with all posts
-// * blog - show info (modal?) on click with user info
+// users page - add links to see user's posts
+// users page - add links to see user's comments
+// blog - add links to see user for each post
 // blog and comments - show emails as links with mailto
 
 export default class Blog extends React.Component {
@@ -49,8 +48,8 @@ export default class Blog extends React.Component {
 
     return(
       <div>
-        <h1>Blog</h1>
-        <p>This is Blog page</p>
+        <h1>Posts</h1>
+        <p>This is Posts page</p>
         <hr/>
 
         {this.state.posts.map((item, index) => {
