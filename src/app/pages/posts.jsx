@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Post from '../components/post';
 
-// blog and comments - show emails as links with mailto
+// post titles - make them clickable - use hover styles
 
 export default class Blog extends React.Component {
   constructor(props) {
@@ -16,8 +16,10 @@ export default class Blog extends React.Component {
     }
 
     this.postsUrl = 'https://jsonplaceholder.typicode.com/posts';
+    this.subHeader = 'This is Posts page';
     if(this.props.location.query.postId) {
       this.postsUrl += `?id=${this.props.location.query.postId}`;
+      this.subHeader = <span>Post with id: {this.props.location.query.postId}</span>
     } else if(this.props.location.query.userId) {
       this.postsUrl += `?userId=${this.props.location.query.userId}`;
     }
@@ -30,6 +32,10 @@ export default class Blog extends React.Component {
       axios.get('https://jsonplaceholder.typicode.com/comments'),
     ])
     .then(axios.spread((posts, users, comments) => {
+      if(this.props.location.query.userId) {
+        let username = users.data.filter(user => user.id == this.props.location.query.userId)[0].username;
+        this.subHeader = <span>Posts by user: <strong>{username}</strong></span>
+      }
       this.setState({
         posts: posts.data.filter(item => item.hasOwnProperty('title')), 
         users: users.data,
@@ -42,7 +48,7 @@ export default class Blog extends React.Component {
     return(
       <div>
         <h1>Posts</h1>
-        <p>This is Posts page</p>
+        <p>{this.subHeader}</p>
         <hr/>
 
         {this.state.posts.map((item, index) => {

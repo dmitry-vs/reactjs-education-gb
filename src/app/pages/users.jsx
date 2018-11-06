@@ -13,8 +13,10 @@ export default class Users extends React.Component {
     }
 
     this.url = 'https://jsonplaceholder.typicode.com/users';
+    this.subHeader = 'This is Users page';
     if(this.props.location.query.username) {
       this.url += `?username=${this.props.location.query.username}`;
+      this.subHeader = <span>Info about user: <strong>{this.props.location.query.username}</strong></span>;
     }
   }
   
@@ -27,7 +29,7 @@ export default class Users extends React.Component {
     return (
       <div>
         <h1>Users</h1>
-        <p>This is Users page</p>
+        <p>{this.subHeader}</p>
         <hr/>
         <ul>
           {this.state.users.map((user, index) => 

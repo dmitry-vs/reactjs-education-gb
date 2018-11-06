@@ -5,19 +5,6 @@ import Navbar from '../components/navbar';
 import Config from '../components/config';
 import Sidebar from '../components/sidebar';
 
-// import BlogConfig from './app/components/config';
-// import Blog from './app/components/blog';
-
-// ReactDOM.render(<Blog 
-//   navbarItems={BlogConfig.navbarItems}
-//   posts={BlogConfig.posts}
-//   sidebarContent={BlogConfig.sidebarContent}
-//   />, 
-//   document.getElementById('app')
-// );
-
-// use correct layout for blog project template
-
 export default class Layout extends React.Component {
   render() {
     return(

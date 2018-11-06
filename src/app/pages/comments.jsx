@@ -13,8 +13,10 @@ export default class Comments extends React.Component {
     }
 
     this.url = 'https://jsonplaceholder.typicode.com/comments';
+    this.subHeader = 'This is Comments page';
     if(this.props.location.query.email) {
       this.url += `?email=${this.props.location.query.email}`;
+      this.subHeader = <span>Comments by: <a href={`mailto:${this.props.location.query.email}`}>{this.props.location.query.email}</a></span>;
     }
   }
   
@@ -27,7 +29,7 @@ export default class Comments extends React.Component {
     return(
       <div>
         <h1>Comments</h1>
-        <p>This is Comments page</p>
+        <p>{this.subHeader}</p>
         <hr/>
         <ul>
           {this.state.comments.map((comment, index) => 
