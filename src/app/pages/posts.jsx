@@ -3,8 +3,6 @@ import axios from 'axios';
 
 import Post from '../components/post';
 
-// post titles - make them clickable - use hover styles
-
 export default class Blog extends React.Component {
   constructor(props) {
     super(props);
