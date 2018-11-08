@@ -10,7 +10,7 @@ export default class Sidebar extends React.Component {
           <ul>
             <li>Posts page has links to User and Comments pages</li>
             <li>Comments page has links to Posts page</li>
-            <li>Post content can be shown/hidden on post title click</li>
+            <li>All routes work right from browser if using <em>server.js</em> as backend</li>
           </ul>
         </div>
         <div className="p-3">
