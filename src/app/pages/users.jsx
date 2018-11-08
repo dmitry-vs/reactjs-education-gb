@@ -23,12 +23,9 @@ export default class Users extends React.Component {
   componentWillMount() {
     axios.get(this.url)
     .then(response => {
-      if(response.data instanceof Array) {
-        this.setState({users: response.data})
-      }
-      else {
-        this.setState({users: [response.data]});
-      }
+      this.setState({
+        users: response.data instanceof Array ? response.data : [response.data],
+      });
     });
   }
 

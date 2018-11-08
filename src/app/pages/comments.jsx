@@ -14,10 +14,6 @@ export default class Comments extends React.Component {
 
     this.url = 'https://jsonplaceholder.typicode.com/comments';
     this.subHeader = 'This is Comments page';
-    // if(this.props.location.query.email) {
-    //   this.url += `?email=${this.props.location.query.email}`;
-    //   this.subHeader = <span>Comments by: <a href={`mailto:${this.props.location.query.email}`}>{this.props.location.query.email}</a></span>;
-    // }
   }
   
   componentWillMount() {
@@ -35,7 +31,7 @@ export default class Comments extends React.Component {
           {this.state.comments.map((comment, index) => 
             <li key={index}>
               <Comment name={comment.name} email={comment.email} body={comment.body}/>
-              <Link to={`/posts?postId=${comment.postId}`}>See post</Link>
+              <Link to={`/posts/${comment.postId}`}>See post</Link>
               <br/><br/>
             </li>
           )}

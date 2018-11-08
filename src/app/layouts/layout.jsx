@@ -25,9 +25,10 @@ export default class Layout extends React.Component {
             <div className="col-md-8 blog-main">
               <Switch>
                 <Route exact path="/" component={Main}/>
-                <Route exact path="/main" component={Main}/>
-                <Route exact path="/posts" component={Posts}/>
-                <Route exact path="/comments" component={Comments}/>
+                <Route path="/main" component={Main}/>
+                <Route path="/posts/:id" component={Posts}/>
+                <Route path="/posts" component={Posts}/>
+                <Route path="/comments" component={Comments}/>
                 <Route path="/users/:id" component={Users}/>
                 <Route path="/users" component={Users}/>
                 <Route path="*" component={PageNotFound}/>
