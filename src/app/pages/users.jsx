@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
 
 import User from '../components/user';
 
@@ -10,19 +9,27 @@ export default class Users extends React.Component {
 
     this.state = {
       users: [],
-    }
+    };
 
     this.url = 'https://jsonplaceholder.typicode.com/users';
     this.subHeader = 'This is Users page';
-    // if(this.props.location.query.username) {
-    //   this.url += `?username=${this.props.location.query.username}`;
-    //   this.subHeader = <span>Info about user: <strong>{this.props.location.query.username}</strong></span>;
-    // }
+    
+    if(this.props.match.params.id){
+      this.url += `/${this.props.match.params.id}`;
+      this.subHeader = <span>Info about user with ID: {this.props.match.params.id}</span>;
+    }
   }
   
   componentWillMount() {
     axios.get(this.url)
-    .then(response => this.setState({users: response.data}));
+    .then(response => {
+      if(response.data instanceof Array) {
+        this.setState({users: response.data})
+      }
+      else {
+        this.setState({users: [response.data]});
+      }
+    });
   }
 
   render() {
@@ -32,12 +39,10 @@ export default class Users extends React.Component {
         <p>{this.subHeader}</p>
         <hr/>
         <ul>
-          {this.state.users.map((user, index) => 
+          {!this.state.users.length ? 'Loading...' : this.state.users.map((user, index) => 
             <li key={index}>
               <User name={user.name} username={user.username} email={user.email} phone={user.phone} website={user.website}/>
-              <Link to={`/posts?userId=${user.id}`}>See posts</Link><br/>
-              <Link to={`/comments?email=${user.email}`}>See comments</Link>
-              <br/><br/>
+              <br/>
             </li>
           )}
         </ul>

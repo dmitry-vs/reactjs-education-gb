@@ -31,7 +31,7 @@ export default class Post extends React.Component {
     return(
       <div className="blog-post" data-id={this.props.id}>
         <h2 className="blog-post-title" onClick={this.onShowContent} style={{cursor: 'pointer'}}>{this.props.title}</h2>
-        <p className="blog-post-meta">by <Link to={`/users?username=${this.props.author}`}>{this.props.author}</Link></p>
+        <p className="blog-post-meta">by <Link to={`/users/${this.props.authorId}`}>{this.props.authorName}</Link></p>
         {postContent}
         <hr/>
       </div>

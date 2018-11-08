@@ -52,7 +52,8 @@ export default class Blog extends React.Component {
         {this.state.posts.map((item, index) => {
           let username = this.state.users.filter(user => user.id === item.userId)[0].username;
           let comments = this.state.comments.filter(comment => comment.postId === item.id);
-          return <Post key={index} id={item.id} title={item.title} content={item.body} author={username} comments={comments}/>
+          return <Post key={index} id={item.id} title={item.title} content={item.body} 
+            authorName={username} authorId={item.userId} comments={comments}/>
         })}
       </div>
     )
