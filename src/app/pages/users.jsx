@@ -8,6 +8,7 @@ export default class Users extends React.Component {
     super(props);
 
     this.state = {
+      loadedData: false,
       users: [],
     };
 
@@ -22,11 +23,14 @@ export default class Users extends React.Component {
   
   componentWillMount() {
     axios.get(this.url)
-    .then(response => {
-      this.setState({
+    .then(response => this.setState({
+        loadedData: true,
         users: response.data instanceof Array ? response.data : [response.data],
-      });
-    });
+    }))
+    .catch(err => this.setState({
+      loadedData: true,
+      users: [],
+    }));
   }
 
   render() {
@@ -44,7 +48,7 @@ export default class Users extends React.Component {
         <h1>Users</h1>
         <p>{this.subHeader}</p>
         <hr/>
-        {!this.state.users.length ? 'Loading...' : content}
+        {this.state.loadedData ? content : 'Loading...'}
       </div>
     )
   }

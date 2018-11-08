@@ -9,6 +9,7 @@ export default class Comments extends React.Component {
     super(props);
 
     this.state = {
+      loadedData: false,
       comments: [],
     }
 
@@ -26,7 +27,14 @@ export default class Comments extends React.Component {
   
   componentWillMount() {
     axios.get(this.url)
-    .then(response => this.setState({comments: response.data}));
+    .then(response => this.setState({
+      loadedData: true,
+      comments: response.data,
+    }))
+    .catch(err => this.setState({
+      loadedData: true,
+      comments: [],
+    }));
   }
   
   render() {
@@ -45,7 +53,7 @@ export default class Comments extends React.Component {
         <h1>Comments</h1>
         <p>{this.subHeader}</p>
         <hr/>
-        {!this.state.comments.length ? 'Loading...' : content}
+        {this.state.loadedData ? content : 'Loading...'}
       </div>
     )
   }

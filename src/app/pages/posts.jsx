@@ -8,6 +8,7 @@ export default class Blog extends React.Component {
     super(props);
 
     this.state = {
+      loadedData: false,
       posts: [],
       users: [],
     }
@@ -28,9 +29,15 @@ export default class Blog extends React.Component {
     ])
     .then(axios.spread((posts, users) => {
       this.setState({
+        loadedData: true,
         posts: posts.data instanceof Array ? posts.data.filter(item => item.hasOwnProperty('title')) : [posts.data], 
         users: users.data,
       });
+    }))
+    .catch(err => this.setState({
+      loadedData: true,
+      posts: [],
+      users: [],
     }));
   }
 
@@ -46,7 +53,7 @@ export default class Blog extends React.Component {
         <h1>Posts</h1>
         <p>{this.subHeader}</p>
         <hr/>
-        {!this.state.posts.length ? 'Loading...' : content}
+        {this.state.loadedData ? content : 'Loading...'}
       </div>
     )
   }
