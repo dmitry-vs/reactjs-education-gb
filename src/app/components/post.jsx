@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import Comment from './comment';
-
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -19,12 +17,7 @@ export default class Post extends React.Component {
     if(this.state.showContent) {
       postContent = <div>
         {this.props.content}<br/><br/>
-        <ul>
-          {this.props.comments.map((comment, index) => 
-            <li key={index}><Comment name={comment.name} email={comment.email} body={comment.body}/></li>
-          )}
-        </ul>
-        <br/>
+        <Link to={`/comments/${this.props.id}`}>See comments</Link><br/>
       </div>
     }
     

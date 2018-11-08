@@ -30,19 +30,21 @@ export default class Users extends React.Component {
   }
 
   render() {
+    let content = <ul>
+      {this.state.users.map((user, index) => 
+        <li key={index}>
+          <User name={user.name} username={user.username} email={user.email} phone={user.phone} website={user.website}/>
+          <br/>
+        </li>
+      )}
+    </ul>;
+    
     return (
       <div>
         <h1>Users</h1>
         <p>{this.subHeader}</p>
         <hr/>
-        <ul>
-          {!this.state.users.length ? 'Loading...' : this.state.users.map((user, index) => 
-            <li key={index}>
-              <User name={user.name} username={user.username} email={user.email} phone={user.phone} website={user.website}/>
-              <br/>
-            </li>
-          )}
-        </ul>
+        {!this.state.users.length ? 'Loading...' : content}
       </div>
     )
   }

@@ -28,6 +28,7 @@ export default class Layout extends React.Component {
                 <Route path="/main" component={Main}/>
                 <Route path="/posts/:id" component={Posts}/>
                 <Route path="/posts" component={Posts}/>
+                <Route path="/comments/:postId" component={Comments}/>
                 <Route path="/comments" component={Comments}/>
                 <Route path="/users/:id" component={Users}/>
                 <Route path="/users" component={Users}/>

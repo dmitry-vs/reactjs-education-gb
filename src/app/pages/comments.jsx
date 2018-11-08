@@ -12,8 +12,16 @@ export default class Comments extends React.Component {
       comments: [],
     }
 
-    this.url = 'https://jsonplaceholder.typicode.com/comments';
+    this.url = 'https://jsonplaceholder.typicode.com';
     this.subHeader = 'This is Comments page';
+
+    if(this.props.match.params.postId) {
+      this.url = `${this.url}/posts/${this.props.match.params.postId}/comments`;
+      this.subHeader = <span>Comments for post with ID: {this.props.match.params.postId}</span>
+    }
+    else {
+      this.url += '/comments';
+    }
   }
   
   componentWillMount() {
@@ -22,20 +30,22 @@ export default class Comments extends React.Component {
   }
   
   render() {
+    let content = <ul>
+      {this.state.comments.map((comment, index) => 
+        <li key={index}>
+          <Comment name={comment.name} email={comment.email} body={comment.body}/>
+          <Link to={`/posts/${comment.postId}`}>See post</Link>
+          <br/><br/>
+        </li>
+      )}
+    </ul>;
+    
     return(
       <div>
         <h1>Comments</h1>
         <p>{this.subHeader}</p>
         <hr/>
-        <ul>
-          {this.state.comments.map((comment, index) => 
-            <li key={index}>
-              <Comment name={comment.name} email={comment.email} body={comment.body}/>
-              <Link to={`/posts/${comment.postId}`}>See post</Link>
-              <br/><br/>
-            </li>
-          )}
-        </ul>
+        {!this.state.comments.length ? 'Loading...' : content}
       </div>
     )
   }
