@@ -9,6 +9,12 @@ import Comments from './app/pages/comments';
 import Posts from './app/pages/posts';
 import Users from './app/pages/users';
 
+// remove routing based on GET parameters
+// instead add support for:
+// - get 1 user with https://jsonplaceholder.typicode.com/users/1
+// - get 1 post with https://jsonplaceholder.typicode.com/posts/1
+// - get comments for 1 post with https://jsonplaceholder.typicode.com/posts/1/comments
+
 ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={Layout}>
