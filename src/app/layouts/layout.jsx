@@ -8,7 +8,6 @@ import Users from '../pages/users';
 import PageNotFound from '../pages/pageNotFound';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
-import Config from '../components/config';
 import Sidebar from '../components/sidebar';
 
 export default class Layout extends React.Component {
@@ -17,7 +16,7 @@ export default class Layout extends React.Component {
       <div id="wraper">
         <div className="container">
           <Header/>
-          <Navbar items={Config.navbarItems}/>
+          <Navbar/>
         </div>
       
         <main role="main" className="container">
@@ -35,11 +34,7 @@ export default class Layout extends React.Component {
                 <Route path="*" component={PageNotFound}/>
               </Switch>
             </div>
-            <Sidebar 
-              header={Config.sidebarContent.header}
-              archives={Config.sidebarContent.archives}
-              elsewhere={Config.sidebarContent.elsewhere}
-            />
+            <Sidebar/>
           </div>{/* row */}
         </main>
         

@@ -5,19 +5,21 @@ export default class Sidebar extends React.Component {
     return(
       <aside className="col-md-4 blog-sidebar">
         <div className="p-3 mb-3 bg-light rounded">
-          <h4 className="font-italic">{this.props.header.title}</h4>
-          <p className="mb-0">{this.props.header.text}</p>
+          <h4 className="font-italic">Home work Lesson 6</h4>
+          <p className="mb-0">Subject: routing with React-Router v4</p><hr/>
+          <ul>
+            <li>Posts page has links to User and Comments pages</li>
+            <li>Comments page has links to Posts page</li>
+            <li>Post content can be shown/hidden on post title click</li>
+          </ul>
         </div>
         <div className="p-3">
-          <h4 className="font-italic">{this.props.archives.name}</h4>
+          <h4 className="font-italic">Additional links</h4>
           <ol className="list-unstyled mb-0">
-            {this.props.archives.items.map((item, index) => <li key={index}><a href={item.href}>{item.text}</a></li>)}
-          </ol>
-        </div>
-        <div className="p-3">
-          <h4 className="font-italic">{this.props.elsewhere.name}</h4>
-          <ol className="list-unstyled">
-            {this.props.elsewhere.items.map((item, index) => <li key={index}><a href={item.href}>{item.text}</a></li>)}
+            <li><a href='#'>Link 1</a></li>
+            <li><a href='#'>Link 2</a></li>
+            <li><a href='#'>Link 3</a></li>
+            <li><a href='#'>Link 4</a></li>
           </ol>
         </div>
       </aside>
