@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 import Comment from '../components/comment';
 
@@ -14,10 +14,10 @@ export default class Comments extends React.Component {
 
     this.url = 'https://jsonplaceholder.typicode.com/comments';
     this.subHeader = 'This is Comments page';
-    if(this.props.location.query.email) {
-      this.url += `?email=${this.props.location.query.email}`;
-      this.subHeader = <span>Comments by: <a href={`mailto:${this.props.location.query.email}`}>{this.props.location.query.email}</a></span>;
-    }
+    // if(this.props.location.query.email) {
+    //   this.url += `?email=${this.props.location.query.email}`;
+    //   this.subHeader = <span>Comments by: <a href={`mailto:${this.props.location.query.email}`}>{this.props.location.query.email}</a></span>;
+    // }
   }
   
   componentWillMount() {

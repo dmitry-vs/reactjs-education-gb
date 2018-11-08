@@ -1,5 +1,10 @@
 import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 
+import Main from '../pages/main';
+import Comments from '../pages/comments';
+import Posts from '../pages/posts';
+import Users from '../pages/users';
 import Header from '../components/header';
 import Navbar from '../components/navbar';
 import Config from '../components/config';
@@ -17,7 +22,13 @@ export default class Layout extends React.Component {
         <main role="main" className="container">
           <div className="row">
             <div className="col-md-8 blog-main">
-              {this.props.children}
+              <Switch>
+                <Route exact path="/" component={Main}/>
+                <Route path="/main" component={Main}/>
+                <Route path="/posts" component={Posts}/>
+                <Route path="/comments" component={Comments}/>
+                <Route path="/users" component={Users}/>
+              </Switch>
             </div>
             <Sidebar 
               header={Config.sidebarContent.header}

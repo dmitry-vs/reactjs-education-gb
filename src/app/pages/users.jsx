@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 import User from '../components/user';
 
@@ -14,10 +14,10 @@ export default class Users extends React.Component {
 
     this.url = 'https://jsonplaceholder.typicode.com/users';
     this.subHeader = 'This is Users page';
-    if(this.props.location.query.username) {
-      this.url += `?username=${this.props.location.query.username}`;
-      this.subHeader = <span>Info about user: <strong>{this.props.location.query.username}</strong></span>;
-    }
+    // if(this.props.location.query.username) {
+    //   this.url += `?username=${this.props.location.query.username}`;
+    //   this.subHeader = <span>Info about user: <strong>{this.props.location.query.username}</strong></span>;
+    // }
   }
   
   componentWillMount() {

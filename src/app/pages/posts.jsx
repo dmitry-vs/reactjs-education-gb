@@ -15,12 +15,12 @@ export default class Blog extends React.Component {
 
     this.postsUrl = 'https://jsonplaceholder.typicode.com/posts';
     this.subHeader = 'This is Posts page';
-    if(this.props.location.query.postId) {
-      this.postsUrl += `?id=${this.props.location.query.postId}`;
-      this.subHeader = <span>Post with id: {this.props.location.query.postId}</span>
-    } else if(this.props.location.query.userId) {
-      this.postsUrl += `?userId=${this.props.location.query.userId}`;
-    }
+    // if(this.props.location.query.postId) {
+    //   this.postsUrl += `?id=${this.props.location.query.postId}`;
+    //   this.subHeader = <span>Post with id: {this.props.location.query.postId}</span>
+    // } else if(this.props.location.query.userId) {
+    //   this.postsUrl += `?userId=${this.props.location.query.userId}`;
+    // }
   }
   
   componentWillMount() {
@@ -30,10 +30,10 @@ export default class Blog extends React.Component {
       axios.get('https://jsonplaceholder.typicode.com/comments'),
     ])
     .then(axios.spread((posts, users, comments) => {
-      if(this.props.location.query.userId) {
-        let username = users.data.filter(user => user.id == this.props.location.query.userId)[0].username;
-        this.subHeader = <span>Posts by user: <strong>{username}</strong></span>
-      }
+      // if(this.props.location.query.userId) {
+      //   let username = users.data.filter(user => user.id == this.props.location.query.userId)[0].username;
+      //   this.subHeader = <span>Posts by user: <strong>{username}</strong></span>
+      // }
       this.setState({
         posts: posts.data.filter(item => item.hasOwnProperty('title')), 
         users: users.data,
