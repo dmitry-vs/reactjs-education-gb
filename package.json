@@ -18,9 +18,15 @@
     "crypto": "^1.0.1",
     "crypto-js": "^3.1.9-1",
     "express": "^4.16.4",
+    "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "react-moment": "^0.8.2",
-    "react-router-dom": "^4.3.1"
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "repository": {
     "type": "",

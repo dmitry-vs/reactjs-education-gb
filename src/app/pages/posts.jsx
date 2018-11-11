@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from "react-redux";
 import axios from 'axios';
 
+import {getPosts, deletePost, addPost} from "../actions/postsAction";
 import Post from '../components/post';
 
-export default class Blog extends React.Component {
+export default class Posts extends React.Component {
   constructor(props) {
     super(props);
 
