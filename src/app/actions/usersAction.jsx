@@ -1,5 +1,6 @@
-import {GET_USERS} from "../constants/usersConstans";
 import axios from 'axios';
+
+import {GET_USERS} from "../constants/usersConstans";
 
 export function getUsers() {
   return {

@@ -1,5 +1,6 @@
-import {GET_POSTS, DELETE_POST, ADD_POST, EDIT_POST} from "../constants/postsConstants";
 import axios from "axios";
+
+import {GET_POSTS, DELETE_POST, ADD_POST, EDIT_POST} from "../constants/postsConstants";
 
 export function getPosts() {
   return {

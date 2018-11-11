@@ -1,45 +1,18 @@
 import React from 'react';
-import axios from 'axios';
+import {connect} from "react-redux";
 import {Link} from 'react-router-dom';
 
+import {getComments} from "../actions/commentsAction";
 import Comment from '../components/comment';
 
-export default class Comments extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loadedData: false,
-      comments: [],
-    }
-
-    this.url = 'https://jsonplaceholder.typicode.com';
-    this.subHeader = 'This is Comments page';
-
-    if(this.props.match.params.postId) {
-      this.url = `${this.url}/posts/${this.props.match.params.postId}/comments`;
-      this.subHeader = <span>Comments for post with ID: {this.props.match.params.postId}</span>
-    }
-    else {
-      this.url += '/comments';
-    }
-  }
-  
-  componentWillMount() {
-    axios.get(this.url)
-    .then(response => this.setState({
-      loadedData: true,
-      comments: response.data,
-    }))
-    .catch(err => this.setState({
-      loadedData: true,
-      comments: [],
-    }));
+class Comments extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(getComments());
   }
   
   render() {
     let content = <ul>
-      {this.state.comments.map((comment, index) => 
+      {this.props.comments.map((comment, index) => 
         <li key={index}>
           <Comment name={comment.name} email={comment.email} body={comment.body}/>
           <Link to={`/posts/${comment.postId}`}>See post</Link>
@@ -51,10 +24,19 @@ export default class Comments extends React.Component {
     return(
       <div>
         <h1>Comments</h1>
-        <p>{this.subHeader}</p>
+        <p>This is Comments page</p>
         <hr/>
-        {this.state.loadedData ? content : 'Loading...'}
+        {this.props.isLoading ? 'Loading...': content}
       </div>
     )
   }
 }
+
+function mapStateToProps(store) {
+  return {
+    comments: store.comments.comments,
+    isLoading: store.comments.isLoading,
+  }
+}
+
+export default connect(mapStateToProps)(Comments);
