@@ -19,6 +19,12 @@ export function postsReducer(state = {posts: [], isLoading: false}, action) {
     }
     // delete post
     case PostsConstants.DELETE_POST: {
+      let index = state.posts.findIndex(post => parseInt(post.id) === parseInt(action.payload));
+
+      if(index !== -1) {
+        state = merge({}, state);
+        state.posts.splice(index, 1);
+      }
       break;
     }
     // add post

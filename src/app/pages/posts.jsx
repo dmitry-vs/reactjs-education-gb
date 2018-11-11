@@ -7,6 +7,14 @@ import Post from '../components/post';
 class Posts extends React.Component {
   componentDidMount() {
     this.props.dispatch(getPosts());
+
+    // delete post handler
+    document.querySelector('body').addEventListener('click', event => {
+      if(event.target.classList.contains('button-delete-post')) {
+        let $post = event.target.parentNode.parentNode.parentNode;
+        this.props.dispatch(deletePost($post.getAttribute('data-id')));
+      }
+    }, true);
   }
 
   render() {
