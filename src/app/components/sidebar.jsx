@@ -5,8 +5,8 @@ export default class Sidebar extends React.Component {
     return(
       <aside className="col-md-4 blog-sidebar">
         <div className="p-3 mb-3 bg-light rounded">
-          <h4 className="font-italic">Home work Lesson 6</h4>
-          <p className="mb-0">Subject: routing with React-Router v4</p><hr/>
+          <h4 className="font-italic">Home work Lesson 7</h4>
+          <p className="mb-0">Subject: Redux</p><hr/>
           <ul>
             <li>Posts page has links to User and Comments pages</li>
             <li>Comments page has links to Posts page</li>
