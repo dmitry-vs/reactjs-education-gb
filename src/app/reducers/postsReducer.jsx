@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 import * as PostsConstants from '../constants/postsConstants';
 
-export function postsReducer(state = {posts: [], isLoading: false}, action) {
+export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
   switch(action.type) {
     // get posts
     case PostsConstants.GET_POSTS_PENDING: {

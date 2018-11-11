@@ -30,7 +30,7 @@ class Users extends React.Component {
   }
 }
 
-function mapStateToProps(store) {
+let mapStateToProps = (store) => {
   return {
     users: store.users.users,
     isLoading: store.users.isLoading,

@@ -32,7 +32,7 @@ class Comments extends React.Component {
   }
 }
 
-function mapStateToProps(store) {
+let mapStateToProps = (store) => {
   return {
     comments: store.comments.comments,
     isLoading: store.comments.isLoading,

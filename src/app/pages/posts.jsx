@@ -14,7 +14,7 @@ class Posts extends React.Component {
         let $post = event.target.parentNode.parentNode.parentNode;
         this.props.dispatch(deletePost($post.getAttribute('data-id')));
       }
-    }, true);
+    });
   }
 
   render() {
@@ -34,7 +34,7 @@ class Posts extends React.Component {
   }
 }
 
-function mapStateToProps(store) {
+let mapStateToProps = (store) => {
   return {
     posts: store.posts.posts,
     isLoading: store.posts.isLoading,

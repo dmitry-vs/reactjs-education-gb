@@ -1,6 +1,6 @@
 import * as CommentsConstants from '../constants/commentsConstants';
 
-export function commentsReducer(state = {comments: [], isLoading: false}, action) {
+export let commentsReducer = (state = {comments: [], isLoading: false}, action) => {
   switch(action.type) {
     case CommentsConstants.GET_COMMENTS_PENDING: {
       state = {...state, isLoading: true};
