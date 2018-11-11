@@ -29,6 +29,14 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
     }
     // add post
     case PostsConstants.ADD_POST: {
+      state = merge({}, state);
+      let newPost = {
+        userId: action.payload.userId,
+        id: state.posts.length + 1,
+        title: action.payload.title,
+        body: action.payload.body,
+      };
+      state.posts.push(newPost);
       break;
     }
     // edit post

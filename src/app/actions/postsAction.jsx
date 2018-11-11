@@ -22,3 +22,10 @@ export let addPost = (title, userId, body) => {
     payload: {title, userId, body},
   }
 }
+
+export let editPost = (postId, newTitle, newBody) => {
+  return {
+    type: EDIT_POST,
+    payload: {postId, newTitle, newBody},
+  }
+}
