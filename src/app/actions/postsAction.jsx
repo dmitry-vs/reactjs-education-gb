@@ -2,10 +2,15 @@ import axios from "axios";
 
 import {GET_POSTS, DELETE_POST, ADD_POST, EDIT_POST} from "../constants/postsConstants";
 
-export let getPosts = () => {
+export let getPosts = (id) => {
+  let url = 'https://jsonplaceholder.typicode.com/posts';
+  if(id) {
+    url += `/${id}`;
+  }
+  
   return {
     type: GET_POSTS,
-    payload: axios.get('https://jsonplaceholder.typicode.com/posts'),
+    payload: axios.get(url),
   }
 }
 

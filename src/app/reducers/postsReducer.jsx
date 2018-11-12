@@ -10,7 +10,7 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
       break;
     }
     case PostsConstants.GET_POSTS_FULFILLED: {
-      state = {...state, isLoading: false, posts: action.payload.data};
+      state = {...state, isLoading: false, posts: action.payload.data instanceof Array ? action.payload.data : [action.payload.data]};
       break;
     }
     case PostsConstants.GET_POSTS_REJECTED: {

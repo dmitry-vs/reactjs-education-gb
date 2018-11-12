@@ -8,6 +8,8 @@ export default class Sidebar extends React.Component {
           <h4 className="font-italic">Home work Lesson 7</h4>
           <p className="mb-0">Subject: Redux</p><hr/>
           <ul>
+            <li>State management is built on Redux</li>
+            <li>Posts can be added, edited or deleted</li>
             <li>Posts page has links to User and Comments pages</li>
             <li>Comments page has links to Posts page</li>
             <li>All routes work right from browser if using <em>server.js</em> as backend</li>

@@ -7,7 +7,7 @@ export let commentsReducer = (state = {comments: [], isLoading: false}, action) 
       break;
     }
     case CommentsConstants.GET_COMMENTS_FULFILLED: {
-      state = {...state, isLoading: false, comments: action.payload.data};
+      state = {...state, isLoading: false, comments: action.payload.data instanceof Array ? action.payload.data : [action.payload.data]};
       break;
     }
     case CommentsConstants.GET_COMMENTS_REJECTED: {

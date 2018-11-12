@@ -7,10 +7,12 @@ import Comment from '../components/comment';
 
 class Comments extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getComments());
+    this.props.dispatch(getComments(this.props.match.params.postId));
   }
   
   render() {
+    let subHeader = this.props.match.params.postId ? `Comments for post #${this.props.match.params.postId}` : 'This is Comments page';
+
     let content = <ul>
       {this.props.comments.map((comment, index) => 
         <li key={index}>
@@ -24,7 +26,7 @@ class Comments extends React.Component {
     return(
       <div>
         <h1>Comments</h1>
-        <p>This is Comments page</p>
+        <p>{subHeader}</p>
         <hr/>
         {this.props.isLoading ? 'Loading...': content}
       </div>

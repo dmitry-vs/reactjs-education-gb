@@ -8,7 +8,7 @@ import EditPostModal from '../components/editPostModal';
 
 class Posts extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getPosts());
+    this.props.dispatch(getPosts(this.props.match.params.id));
 
     // get these elements here to avoid repeating code later
     let $editPostFormPostId = document.getElementById('edit-post-id');
@@ -20,7 +20,8 @@ class Posts extends React.Component {
       if(event.target.classList.contains('button-delete-post')) {
         let $post = event.target.parentNode.parentNode.parentNode;
         this.props.dispatch(deletePost($post.getAttribute('data-id')));
-      } else if(event.target.classList.contains('button-edit-post')) {
+      } 
+      else if(event.target.classList.contains('button-edit-post')) {
         let $post = event.target.parentNode.parentNode.parentNode;
         $editPostFormPostId.value = $post.getAttribute('data-id');
         $editPostFormTitle.value = $post.querySelector('.blog-post-title').innerText;
@@ -65,6 +66,8 @@ class Posts extends React.Component {
   }
 
   render() {
+    let subHeader = this.props.match.params.id ? `Info about post #${this.props.match.params.id}` : 'This is Posts page';
+    
     let content = this.props.posts.map((item, index) => {
       return <Post key={index} id={item.id} title={item.title} content={item.body} authorId={item.userId}/>
     });
@@ -72,7 +75,7 @@ class Posts extends React.Component {
     return(
       <div>
         <h1>Posts</h1>
-        <p>This is Posts page</p>
+        <p>{subHeader}</p>
         <button type="submit" className="btn btn-primary" id="button-add-post" data-toggle="modal" data-target="#add-post-modal">
           Add post
         </button><br/>
