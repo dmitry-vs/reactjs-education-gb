@@ -7,7 +7,7 @@ export let usersReducer = (state = {users: [], isLoading: false}, action) => {
       break;
     }
     case UsersConstants.GET_USERS_FULFILLED: {
-      state = {...state, isLoading: false, users: action.payload.data};
+      state = {...state, isLoading: false, users: action.payload.data instanceof Array ? action.payload.data : [action.payload.data]};
       break;
     }
     case UsersConstants.GET_USERS_REJECTED: {

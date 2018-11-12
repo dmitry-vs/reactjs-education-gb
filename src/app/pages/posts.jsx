@@ -66,8 +66,7 @@ class Posts extends React.Component {
 
   render() {
     let content = this.props.posts.map((item, index) => {
-      return <Post key={index} id={item.id} title={item.title} content={item.body} 
-        authorName={'Test'} authorId={item.userId}/>
+      return <Post key={index} id={item.id} title={item.title} content={item.body} authorId={item.userId}/>
     });
     
     return(

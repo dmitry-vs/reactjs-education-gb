@@ -6,10 +6,12 @@ import User from '../components/user';
 
 class Users extends React.Component {
   componentDidMount() {
-    this.props.dispatch(getUsers());
+    this.props.dispatch(getUsers(this.props.match.params.id));
   }
 
   render() {
+    let subHeader = this.props.match.params.id ? `Info about user #${this.props.match.params.id}` : 'This is Users page';
+
     let content = <ul>
       {this.props.users.map((user, index) => 
         <li key={index}>
@@ -18,11 +20,11 @@ class Users extends React.Component {
         </li>
       )}
     </ul>;
-    
+
     return (
       <div>
         <h1>Users</h1>
-        <p>This is Users page</p>
+        <p>{subHeader}</p>
         <hr/>
         {this.props.isLoading ? 'Loading...' : content}
       </div>
