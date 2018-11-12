@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import {getPosts, deletePost, addPost} from "../actions/postsAction";
+import {getPosts, deletePost, addPost, editPost} from "../actions/postsAction";
 import Post from '../components/post';
 import AddPostModal from '../components/addPostModal';
 import EditPostModal from '../components/editPostModal';
@@ -10,15 +10,25 @@ class Posts extends React.Component {
   componentDidMount() {
     this.props.dispatch(getPosts());
 
-    // delete post handler
+    // get these elements here to avoid repeating code later
+    let $editPostFormPostId = document.getElementById('edit-post-id');
+    let $editPostFormTitle = document.getElementById('edit-post-title');
+    let $editPostFormContent = document.getElementById('edit-post-content');
+
+    // delete post and edit post button click handlers
     document.querySelector('body').addEventListener('click', event => {
       if(event.target.classList.contains('button-delete-post')) {
         let $post = event.target.parentNode.parentNode.parentNode;
         this.props.dispatch(deletePost($post.getAttribute('data-id')));
+      } else if(event.target.classList.contains('button-edit-post')) {
+        let $post = event.target.parentNode.parentNode.parentNode;
+        $editPostFormPostId.value = $post.getAttribute('data-id');
+        $editPostFormTitle.value = $post.querySelector('.blog-post-title').innerText;
+        $editPostFormContent.value = $post.querySelector('.blog-post-content').innerText;
       }
     });
 
-    // add post handler
+    // add post form handler
     document.getElementById('add-post-form').addEventListener('submit', event => {
       event.preventDefault();
       $('#add-post-modal').modal('toggle'); // force modal close
@@ -26,6 +36,8 @@ class Posts extends React.Component {
       let $addPostFormAuthorId = document.getElementById('add-post-author-id');
       let $addPostFormContent = document.getElementById('add-post-content');
       let [title, userId, body] = [$addPostFormTitle.value, $addPostFormAuthorId.value, $addPostFormContent.value];
+      [$addPostFormTitle.value, $addPostFormAuthorId.value, $addPostFormContent.value] = ['', '', '']; // clear form for future use
+      
       if(!title || !userId || !body) {
         alert('Form fields must be non-empty');
         return;
@@ -34,10 +46,21 @@ class Posts extends React.Component {
       if(isNaN(userId) || userId <= 0) {
         alert('Author ID must be positive integer');
       }
-
       this.props.dispatch(addPost(title, userId, body));
-      // clear form for future use
-      [$addPostFormTitle.value, $addPostFormAuthorId.value, $addPostFormContent.value] = ['', '', ''];
+    });
+
+    // edit post form handler
+    document.getElementById('edit-post-form').addEventListener('submit', event => {
+      event.preventDefault();
+      $('#edit-post-modal').modal('toggle'); // force modal close
+      let [postId, title, body] = [$editPostFormPostId.value, $editPostFormTitle.value, $editPostFormContent.value];
+      [$editPostFormPostId.value, $editPostFormTitle, $editPostFormContent] = ['', '', '']; // clear form for future use
+      
+      if(!postId || !title || !body) {
+        alert('Form fields must be non-empty');
+        return;
+      }
+      this.props.dispatch(editPost(postId, title, body));
     });
   }
 

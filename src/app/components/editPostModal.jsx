@@ -15,15 +15,11 @@ export default class EditPostModal extends React.Component {
             <div className="modal-body">
               <form id="edit-post-form">
                 <div className="form-group">
-                  <label htmlFor="edit-post-title">New post title</label>
+                  <label htmlFor="edit-post-title">Edit post title</label>
                   <input type="text" id="edit-post-title" className="form-control" placeholder="Title"/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="edit-post-author">New post author</label>
-                  <input type="text" id="edit-post-author" className="form-control" placeholder="Author"/>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="edit-post-content">New post content</label>
+                  <label htmlFor="edit-post-content">Edit post content</label>
                   <textarea id="edit-post-content" className="form-control" rows="4" placeholder="Content"/>
                 </div>
                 <div className="form-group">

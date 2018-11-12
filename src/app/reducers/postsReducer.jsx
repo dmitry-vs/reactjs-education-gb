@@ -40,6 +40,15 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
       break;
     }
     // edit post
+    case PostsConstants.EDIT_POST: {
+      let index = state.posts.findIndex(post => parseInt(post.id) === parseInt(action.payload.postId));
+
+      if(index !== -1) {
+        state = merge({}, state);
+        state.posts[index].title = action.payload.newTitle;
+        state.posts[index].body = action.payload.newBody;
+      }
+    }
   }
   return state;
 }

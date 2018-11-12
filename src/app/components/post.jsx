@@ -16,7 +16,8 @@ export default class Post extends React.Component {
     let postContent;
     if(this.state.showContent) {
       postContent = <div>
-        {this.props.content}<br/><br/>
+        <div className="blog-post-content">{this.props.content}</div>
+        <br/><br/>
         <Link to={`/comments/${this.props.id}`}>See comments</Link><br/><br/>
         <div className="btn-group">
           <button type="button" className="btn btn-warning button-edit-post" data-toggle="modal" data-target="#edit-post-modal">Edit</button>
