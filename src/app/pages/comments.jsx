@@ -11,7 +11,7 @@ class Comments extends React.Component {
   }
   
   render() {
-    let subHeader = this.props.match.params.postId ? `Comments for post #${this.props.match.params.postId}` : 'This is Comments page';
+    let subHeader = this.props.match.params.postId ? `Comments for post with ID: ${this.props.match.params.postId}` : 'This is Comments page';
 
     let content = <ul>
       {this.props.comments.map((comment, index) => 

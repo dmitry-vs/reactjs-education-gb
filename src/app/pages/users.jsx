@@ -10,7 +10,7 @@ class Users extends React.Component {
   }
 
   render() {
-    let subHeader = this.props.match.params.id ? `Info about user #${this.props.match.params.id}` : 'This is Users page';
+    let subHeader = this.props.match.params.id ? `Info about user with ID: ${this.props.match.params.id}` : 'This is Users page';
 
     let content = <ul>
       {this.props.users.map((user, index) => 

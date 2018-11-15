@@ -10,4 +10,10 @@ router.get('/', (req, res, next) => {
   .catch(err => next(err));
 });
 
+router.get('/:id', (req, res, next) => {
+  UsersModel.find({_id: req.params.id})
+  .then(users => res.json(users))
+  .catch(err => next(err));
+});
+
 module.exports = router;

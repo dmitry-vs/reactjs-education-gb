@@ -10,4 +10,10 @@ router.get('/', (req, res, next) => {
   .catch(err => next(err));
 });
 
+router.get('/:postId', (req, res, next) => {
+  CommentsModel.find({postId: req.params.postId})
+  .then(comments => res.json(comments))
+  .catch(err => next(err));
+});
+
 module.exports = router;

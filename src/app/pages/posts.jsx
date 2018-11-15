@@ -66,10 +66,10 @@ class Posts extends React.Component {
   }
 
   render() {
-    let subHeader = this.props.match.params.id ? `Info about post #${this.props.match.params.id}` : 'This is Posts page';
+    let subHeader = this.props.match.params.id ? `Info about post with ID: ${this.props.match.params.id}` : 'This is Posts page';
     
     let content = this.props.posts.map((item, index) => {
-      return <Post key={index} id={item.id} title={item.title} content={item.body} authorId={item.userId}/>
+      return <Post key={index} id={item._id} title={item.title} content={item.body} authorId={item.userId}/>
     });
     
     return(
