@@ -10,11 +10,6 @@ class Posts extends React.Component {
   componentDidMount() {
     this.props.dispatch(getPosts(this.props.match.params.id));
 
-    // get these elements here to avoid repeating code later
-    let $editPostFormPostId = document.getElementById('edit-post-id');
-    let $editPostFormTitle = document.getElementById('edit-post-title');
-    let $editPostFormContent = document.getElementById('edit-post-content');
-
     // delete post and edit post button click handlers
     document.querySelector('body').addEventListener('click', event => {
       if(event.target.classList.contains('button-delete-post')) {
@@ -23,6 +18,9 @@ class Posts extends React.Component {
       } 
       else if(event.target.classList.contains('button-edit-post')) {
         let $post = event.target.parentNode.parentNode.parentNode;
+        let $editPostFormPostId = document.getElementById('edit-post-id');
+        let $editPostFormTitle = document.getElementById('edit-post-title');
+        let $editPostFormContent = document.getElementById('edit-post-content');
         $editPostFormPostId.value = $post.getAttribute('data-id');
         $editPostFormTitle.value = $post.querySelector('.blog-post-title').innerText;
         $editPostFormContent.value = $post.querySelector('.blog-post-content').innerText;
@@ -54,6 +52,9 @@ class Posts extends React.Component {
     document.getElementById('edit-post-form').addEventListener('submit', event => {
       event.preventDefault();
       $('#edit-post-modal').modal('toggle'); // force modal close
+      let $editPostFormPostId = document.getElementById('edit-post-id');
+      let $editPostFormTitle = document.getElementById('edit-post-title');
+      let $editPostFormContent = document.getElementById('edit-post-content');
       let [postId, title, body] = [$editPostFormPostId.value, $editPostFormTitle.value, $editPostFormContent.value];
       [$editPostFormPostId.value, $editPostFormTitle, $editPostFormContent] = ['', '', '']; // clear form for future use
       

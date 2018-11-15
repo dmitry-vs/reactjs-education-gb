@@ -33,8 +33,10 @@ export let addPost = (title, userId, body) => {
 }
 
 export let editPost = (postId, newTitle, newBody) => {
+  let url = '/api/posts/update';
+  
   return {
     type: EDIT_POST,
-    payload: {postId, newTitle, newBody},
+    payload: axios.post(url, {postId, newTitle, newBody}),
   }
 }

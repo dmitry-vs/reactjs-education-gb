@@ -51,14 +51,22 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
       break;
     }
     // edit post
-    case PostsConstants.EDIT_POST: {
-      let index = state.posts.findIndex(post => post.id === action.payload.postId);
-
+    case PostsConstants.EDIT_POST_PENDING: {
+      state = {...state, isLoading: true};
+      break;
+    }
+    case PostsConstants.EDIT_POST_FULFILLED: {
+      let updatedPost = action.payload.data;
+      let index = state.posts.findIndex(post => post.id === updatedPost.postId);
       if(index !== -1) {
-        state = merge({}, state);
-        state.posts[index].title = action.payload.newTitle;
-        state.posts[index].body = action.payload.newBody;
+        state = {...state, isLoading: false};
+        state.posts[index] = updatedPost;
       }
+      break;
+    }
+    case PostsConstants.EDIT_POST_REJECTED: {
+      state = {...state, isLoading: false, errorMessage: action.payload.message};
+      break;
     }
   }
   return state;

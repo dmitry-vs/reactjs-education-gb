@@ -31,4 +31,13 @@ router.post('/insert', (req, res, next) => {
   .catch(err => next(err));
 });
 
+router.post('/update', (req, res, next) => {
+  PostModel.findByIdAndUpdate(req.body.postId, {$set: {
+    title: req.body.newTitle, 
+    body: req.body.newBody,
+  }}, {new: true})
+  .then(post => res.json(post))
+  .catch(err => next(err));
+})
+
 module.exports = router;
