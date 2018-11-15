@@ -8,6 +8,9 @@ let usersSchema = new Schema({
   email: String,
   phone: String,
   website: String,
+},
+{
+  versionKey: false,
 });
 
 module.exports = mongoose.model('Users', usersSchema);

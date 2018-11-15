@@ -7,6 +7,9 @@ let commentsSchema = new Schema({
   name: String,
   email: String,
   body: String,
+},
+{
+  versionKey: false,
 });
 
 module.exports = mongoose.model('Comments', commentsSchema);

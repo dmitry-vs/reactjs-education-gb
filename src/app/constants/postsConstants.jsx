@@ -6,5 +6,8 @@ export const GET_POSTS_REJECTED = 'GET_POSTS_REJECTED';
 export const DELETE_POST = 'DELETE_POST';
 
 export const ADD_POST = 'ADD_POST';
+export const ADD_POST_PENDING = 'ADD_POST_PENDING';
+export const ADD_POST_FULFILLED = 'ADD_POST_FULFILLED';
+export const ADD_POST_REJECTED = 'ADD_POST_REJECTED';
 
 export const EDIT_POST = 'EDIT_POST';

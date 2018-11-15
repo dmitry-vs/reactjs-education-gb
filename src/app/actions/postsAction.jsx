@@ -15,16 +15,20 @@ export let getPosts = (id) => {
 }
 
 export let deletePost = (postId) => {
+  let url = `/api/posts/delete/${postId}`;
+
   return {
     type: DELETE_POST,
-    payload: postId,
+    payload: axios.get(url),
   }
 }
 
 export let addPost = (title, userId, body) => {
+  let url = '/api/posts/insert';
+  
   return {
     type: ADD_POST,
-    payload: {title, userId, body},
+    payload: axios.post(url, {userId, title, body}),
   }
 }
 

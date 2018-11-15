@@ -19,7 +19,8 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
     }
     // delete post
     case PostsConstants.DELETE_POST: {
-      let index = state.posts.findIndex(post => parseInt(post.id) === parseInt(action.payload));
+      let deletedPost = action.payload.data;
+      let index = state.posts.findIndex(post => parseInt(post._id) === parseInt(deletedPost._id));
 
       if(index !== -1) {
         state = merge({}, state);
@@ -28,15 +29,18 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
       break;
     }
     // add post
-    case PostsConstants.ADD_POST: {
-      state = merge({}, state);
-      let newPost = {
-        userId: action.payload.userId,
-        id: state.posts.length + 1,
-        title: action.payload.title,
-        body: action.payload.body,
-      };
+    case PostsConstants.ADD_POST_PENDING: {
+      state = {...state, isLoading: true};
+      break;
+    }
+    case PostsConstants.ADD_POST_FULFILLED: {
+      let newPost = action.payload.data;
+      state = {...state, isLoading: false};
       state.posts.push(newPost);
+      break;
+    }
+    case PostsConstants.ADD_POST_REJECTED: {
+      state = {...state, isLoading: false, errorMessage: action.payload.message};
       break;
     }
     // edit post
