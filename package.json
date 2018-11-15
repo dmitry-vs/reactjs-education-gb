@@ -20,6 +20,8 @@
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
+    "mongoose": "^5.3.12",
+    "morgan": "^1.9.1",
     "react-moment": "^0.8.2",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
