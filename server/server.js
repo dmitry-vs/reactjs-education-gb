@@ -5,7 +5,7 @@ const morgan = require('morgan');
 
 const RoutePosts = require('./routes/posts');
 
-mongoose.connect('mongodb://localhost:27017/blog');
+mongoose.connect('mongodb://localhost:27017/blog', {useNewUrlParser: true});
 
 const app = express();
 app.set('view engine', 'html');
@@ -23,6 +23,10 @@ app.use(morgan('combined'));
 app.use('/api/posts', RoutePosts);
 // ... more routes here
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+});
+
 // error handling
 app.use((req, res, next) => {
   let error = new Error('Page not found');
@@ -37,10 +41,5 @@ app.use((error, req, res) => {
     error,
   });
 });
-
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
-// });
 
 app.listen(3000);

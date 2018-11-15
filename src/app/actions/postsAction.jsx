@@ -3,7 +3,8 @@ import axios from "axios";
 import {GET_POSTS, DELETE_POST, ADD_POST, EDIT_POST} from "../constants/postsConstants";
 
 export let getPosts = (id) => {
-  let url = 'https://jsonplaceholder.typicode.com/posts';
+  // let url = 'https://jsonplaceholder.typicode.com/posts';
+  let url = '/api/posts';
   if(id) {
     url += `/${id}`;
   }
