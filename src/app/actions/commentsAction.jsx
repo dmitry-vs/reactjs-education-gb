@@ -3,7 +3,7 @@ import axios from 'axios';
 import {GET_COMMENTS} from "../constants/commentsConstants";
 
 export let getComments = (postId) => {
-  let url = 'https://jsonplaceholder.typicode.com';
+  let url = '/api';
   if(postId) {
     url += `/posts/${postId}`;
   }

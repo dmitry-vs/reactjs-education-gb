@@ -3,7 +3,7 @@ import axios from 'axios';
 import {GET_USERS} from "../constants/usersConstans";
 
 export let getUsers = (id) => {
-  let url = 'https://jsonplaceholder.typicode.com/users';
+  let url = '/api/users';
   if(id) {
     url += `/${id}`;
   }
