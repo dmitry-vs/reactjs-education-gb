@@ -20,7 +20,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.get('/delete/:id', (req, res, next) => {
-  PostModel.deleteOne({_id: req.params.id})
+  PostModel.findOneAndRemove({_id: req.params.id})
   .then(post => res.json(post))
   .catch(err => next(err));
 });
