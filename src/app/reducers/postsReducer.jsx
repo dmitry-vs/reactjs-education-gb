@@ -57,7 +57,7 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
     }
     case PostsConstants.EDIT_POST_FULFILLED: {
       let updatedPost = action.payload.data;
-      let index = state.posts.findIndex(post => post.id === updatedPost.postId);
+      let index = state.posts.findIndex(post => post._id === updatedPost._id);
       if(index !== -1) {
         state = {...state, isLoading: false};
         state.posts[index] = updatedPost;

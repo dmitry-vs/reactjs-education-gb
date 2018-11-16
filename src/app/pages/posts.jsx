@@ -14,6 +14,7 @@ class Posts extends React.Component {
     document.querySelector('body').addEventListener('click', event => {
       if(event.target.classList.contains('button-delete-post')) {
         let $post = event.target.parentNode.parentNode.parentNode;
+        console.log('clicked');
         this.props.dispatch(deletePost($post.getAttribute('data-id')));
       } 
       else if(event.target.classList.contains('button-edit-post')) {

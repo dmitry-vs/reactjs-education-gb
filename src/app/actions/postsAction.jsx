@@ -15,6 +15,7 @@ export let getPosts = (id) => {
 }
 
 export let deletePost = (postId) => {
+  console.log('here');
   let url = `/api/posts/delete/${postId}`;
 
   return {

@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import SignUpModal from './signUpModal';
-
 export default class Header extends React.Component {
   render() {
     return(
@@ -12,10 +10,7 @@ export default class Header extends React.Component {
           <div className="col-4 text-center">
             <Link className="blog-header-logo text-dark" to='/'>Learn ReactJS</Link>
           </div>
-          <div className="col-4 d-flex justify-content-end align-items-center">
-            <button className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#signupModal">Sign up</button>
-            <SignUpModal/>
-          </div>
+          <div className="col-4"/>
         </div>
       </header>
     )
