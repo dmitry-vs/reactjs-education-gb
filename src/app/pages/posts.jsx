@@ -34,11 +34,13 @@ class Posts extends React.Component {
       event.preventDefault();
       $('#add-post-modal').modal('toggle'); // force modal close
       let $addPostFormTitle = document.getElementById('add-post-title');
-      let $addPostFormAuthorId = document.getElementById('add-post-author-id');
       let $addPostFormContent = document.getElementById('add-post-content');
-      let [title, userId, body] = [$addPostFormTitle.value, $addPostFormAuthorId.value, $addPostFormContent.value];
-      [$addPostFormTitle.value, $addPostFormAuthorId.value, $addPostFormContent.value] = ['', '', '']; // clear form for future use
-      
+      let [title, body] = [$addPostFormTitle.value, $addPostFormContent.value];
+      [$addPostFormTitle.value, $addPostFormContent.value] = ['', '']; // clear form for future use
+      let $addPostFormAuthorName = document.getElementById('add-post-author-name');
+      let username = $addPostFormAuthorName.options[$addPostFormAuthorName.selectedIndex].value;
+      let user = this.props.users.filter(user => user.username === username)[0];
+      let userId = {...user}._id;
       if(!title || !userId || !body) {
         alert('Form fields must be non-empty');
         return;
@@ -72,6 +74,8 @@ class Posts extends React.Component {
       return <Post key={index} id={item._id} title={item.title} content={item.body} authorId={item.userId} authorName={{...postAuthor}.username}/>
     });
     
+    let userNames = this.props.isLoading ? [] : this.props.users.map(user => user.username);
+
     return(
       <div>
         <h1>Posts</h1>
@@ -81,7 +85,8 @@ class Posts extends React.Component {
         </button><br/>
         <hr/>
         {this.props.isLoading ? 'Loading...' : content}
-        <AddPostModal/>
+        
+        <AddPostModal users={userNames}/>
         <EditPostModal/>
       </div>
     )
@@ -92,7 +97,7 @@ let mapStateToProps = (store) => {
   return {
     posts: store.posts.posts,
     users: store.users.users,
-    isLoading: store.posts.isLoading,
+    isLoading: store.posts.isLoading || store.users.isLoading,
   }
 }
 

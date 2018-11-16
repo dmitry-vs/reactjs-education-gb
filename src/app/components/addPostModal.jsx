@@ -19,8 +19,10 @@ export default class AddPostModal extends React.Component {
                   <input type="text" id="add-post-title" className="form-control" placeholder="Title"/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="add-post-author-id">New post author ID</label>
-                  <input type="text" id="add-post-author-id" className="form-control" placeholder="Author ID"/>
+                  <label htmlFor="add-post-author-name">New post author</label>
+                  <select id="add-post-author-name" class="form-control">
+                    {this.props.users.map(user => <option>{user}</option>)}
+                  </select>
                 </div>
                 <div className="form-group">
                   <label htmlFor="add-post-content">New post content</label>
