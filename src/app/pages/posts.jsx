@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 
 import {getPosts, deletePost, addPost, editPost} from "../actions/postsAction";
+import {getUsers} from "../actions/usersAction";
 import Post from '../components/post';
 import AddPostModal from '../components/addPostModal';
 import EditPostModal from '../components/editPostModal';
@@ -9,6 +10,7 @@ import EditPostModal from '../components/editPostModal';
 class Posts extends React.Component {
   componentDidMount() {
     this.props.dispatch(getPosts(this.props.match.params.id));
+    this.props.dispatch(getUsers());
 
     // delete post and edit post button click handlers
     document.querySelector('body').addEventListener('click', event => {
@@ -41,10 +43,6 @@ class Posts extends React.Component {
         alert('Form fields must be non-empty');
         return;
       }
-      userId = parseInt(userId);
-      if(isNaN(userId) || userId <= 0) {
-        alert('Author ID must be positive integer');
-      }
       this.props.dispatch(addPost(title, userId, body));
     });
 
@@ -70,7 +68,8 @@ class Posts extends React.Component {
     let subHeader = this.props.match.params.id ? `Info about post with ID: ${this.props.match.params.id}` : 'This is Posts page';
     
     let content = this.props.posts.map((item, index) => {
-      return <Post key={index} id={item._id} title={item.title} content={item.body} authorId={item.userId}/>
+      let postAuthor = this.props.users.filter(user => user._id === item.userId)[0];
+      return <Post key={index} id={item._id} title={item.title} content={item.body} authorId={item.userId} authorName={{...postAuthor}.username}/>
     });
     
     return(
@@ -92,6 +91,7 @@ class Posts extends React.Component {
 let mapStateToProps = (store) => {
   return {
     posts: store.posts.posts,
+    users: store.users.users,
     isLoading: store.posts.isLoading,
   }
 }
