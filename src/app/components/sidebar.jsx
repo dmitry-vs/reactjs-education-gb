@@ -10,6 +10,9 @@ export default class Sidebar extends React.Component {
           <ul>
             <li>App uses Node/Express backend</li>
             <li>App uses models Posts, Users and Comments with Mongo</li>
+            <li>Posts can be added, deleted or updated</li>
+            <li>When post is deleted, its comments are also deleted</li>
+            <li>To restore database form dump, run command <code>mongorestore dump</code> from <code>mongodb</code> folder</li>
           </ul>
         </div>
         <div className="p-3">

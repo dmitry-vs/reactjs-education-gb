@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const commentsModel = require('./comments');
+
 let Schema = mongoose.Schema;
 
 let postsSchema = new Schema({
@@ -11,12 +13,17 @@ let postsSchema = new Schema({
   versionKey: false,
 });
 
-postsSchema.statics.deletePost = function(postId) {
-  return new Promise((resolve, reject) => {
-    this.findOneAndRemove({_id: postId})
-    .then(post => resolve(post))
-    .catch(err => reject(err));
-  });  
+postsSchema.statics.deletePost = async function(postId) {
+  try {
+    let post = await this.findOneAndRemove({_id: postId});
+    if(post) {
+      await commentsModel.deleteMany({postId: post._id});
+    }
+    return post;
+  }
+  catch(error) {
+    throw new Error(error);
+  }
 }
 
 module.exports = mongoose.model('Posts', postsSchema);
