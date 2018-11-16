@@ -24,10 +24,12 @@ export let postsReducer = (state = {posts: [], isLoading: false}, action) => {
     }
     case PostsConstants.DELETE_POST_FULFILLED: {
       let deletedPost = action.payload.data;
-      let index = state.posts.findIndex(post => post._id === deletedPost._id);
-      if(index !== -1) {
-        state = {...state, isLoading: false};
-        state.posts.splice(index, 1);
+      state = {...state, isLoading: false}
+      if(deletedPost) {
+        let index = state.posts.findIndex(post => post._id === deletedPost._id);
+        if(index !== -1) {
+          state.posts.splice(index, 1);
+        }
       }
       break;
     }
