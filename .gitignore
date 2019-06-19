@@ -65,3 +65,5 @@ dist/*
 *.txt
 *.zip
 mongodb/*
+
+!screen.png

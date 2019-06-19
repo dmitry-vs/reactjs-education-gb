@@ -1,4 +1,4 @@
-# React JS course #
+# React JS Blog #
 
 Данный проект представляет собой учебный практикум по курсу React JS учебного центра GeekBrains.
 
@@ -7,3 +7,5 @@
 Клиентская часть (frontend) сделана с использованием React JS.
 
 Серверная часть (backend) сделана при помощи Node JS, Express, MongoDB.
+
+![](screen.png)
